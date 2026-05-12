@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Demos — Percipio Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0b0d11;
+      --surface: #13161e;
+      --surface2: #1c2030;
+      --border: #252a3a;
+      --gold: #e8a020;
+      --gold-light: #f5b84a;
+      --gold-dim: rgba(232,160,32,0.12);
+      --text: #e8eaf0;
+      --muted: #7a8099;
+      --green: #2ecc71;
+      --orange: #f39c12;
+      --red: #e74c3c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      background-image:
+        radial-gradient(ellipse at 15% 10%, rgba(232,160,32,0.06) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 85%, rgba(61,142,240,0.05) 0%, transparent 55%);
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11,13,17,0.85);
+      backdrop-filter: blur(12px);
+      padding: 22px 40px;
+      display: flex; align-items: center; gap: 12px;
+    }
+
+    .logo-dot {
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 10px var(--gold);
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .logo-text {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .logo-text span { color: var(--gold); }
+
+    .back-link {
+      margin-left: auto;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      letter-spacing: 0.04em;
+    }
+
+    .back-link:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 860px; margin: 0 auto;
+      padding: 56px 40px 36px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.9rem, 5vw, 2.9rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    h1 em { font-style: normal; color: var(--gold); }
+
+    .hero-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      max-width: 520px;
+      font-weight: 300;
+    }
+
+    /* ── TABS ── */
+    .tabs-wrap {
+      max-width: 860px; margin: 0 auto;
+      padding: 0 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tabs { display: flex; }
+
+    .tab-btn {
+      padding: 14px 26px;
+      background: none; border: none;
+      font-family: 'Syne', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: var(--muted);
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+    }
+
+    .tab-btn:hover { color: var(--text); }
+
+    .tab-btn.active { color: var(--gold); }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      box-shadow: 0 0 8px var(--gold);
+    }
+
+    .tab-num {
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      width: 19px; height: 19px;
+      border-radius: 50%;
+      font-size: 0.63rem;
+      margin-right: 7px;
+      background: var(--surface2);
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .tab-btn.active .tab-num {
+      background: var(--gold-dim);
+      color: var(--gold);
+    }
+
+    /* ── PANELS ── */
+    .panel {
+      display: none;
+      max-width: 860px; margin: 0 auto;
+      padding: 36px 40px 60px;
+      animation: fadeUp 0.35s ease both;
+    }
+
+    .panel.active { display: block; }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+    }
+
+    .card-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .card-desc {
+      font-size: 0.845rem;
+      color: var(--muted);
+      margin-bottom: 26px;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* ── FORM ── */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    input, select, textarea {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+    }
+
+    input::placeholder, textarea::placeholder { color: var(--muted); opacity: 0.55; }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(232,160,32,0.1);
+    }
+
+    select option { background: #1c2030; }
+    textarea { resize: vertical; min-height: 85px; }
+
+    /* ── BUTTON ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center; gap: 8px;
+      background: var(--gold);
+      color: #0b0d11;
+      border: none;
+      border-radius: 10px;
+      padding: 13px 26px;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: var(--gold-light);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(232,160,32,0.28);
+    }
+
+    .btn-primary:disabled { opacity: 0.45; cursor: not-allowed; }
+
+    .spinner {
+      width: 16px; height: 16px;
+      border: 2px solid rgba(11,13,17,0.3);
+      border-top-color: #0b0d11;
+      border-radius: 50%;
+      animation: spin 0.65s linear infinite;
+      display: none;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── RESULTS ── */
+    .results { margin-top: 26px; display: none; }
+    .results.show { display: block; }
+
+    .results-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+
+    .result-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+    }
+
+    .result-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .result-card-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .copy-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .copy-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .copy-btn.copied { border-color: var(--green); color: var(--green); }
+
+    .result-card p {
+      font-size: 0.875rem;
+      line-height: 1.7;
+      color: var(--text);
+      white-space: pre-wrap;
+    }
+
+    /* ── SCORE ── */
+    .score-display {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 20px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .score-badge {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.82rem;
+      padding: 7px 16px;
+      border-radius: 8px;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .score-hot  { background: rgba(46,204,113,0.13); color: var(--green); border: 1px solid rgba(46,204,113,0.28); }
+    .score-warm { background: rgba(243,156,18,0.13); color: var(--orange); border: 1px solid rgba(243,156,18,0.28); }
+    .score-cold { background: rgba(231,76,60,0.13);  color: var(--red);    border: 1px solid rgba(231,76,60,0.28); }
+
+    .score-info .score-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      margin-bottom: 3px;
+    }
+
+    .score-info .score-sub { font-size: 0.8rem; color: var(--muted); }
+
+    .steps-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+
+    .steps-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 0.865rem;
+      line-height: 1.55;
+    }
+
+    .step-num {
+      min-width: 21px; height: 21px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      border: 1px solid rgba(232,160,32,0.28);
+      color: var(--gold);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.62rem;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px; flex-shrink: 0;
+    }
+
+    /* ── PLATFORM ICONS ── */
+    .platform-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .platform-icon {
+      width: 26px; height: 26px;
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 700;
+      font-family: 'Syne', sans-serif;
+      flex-shrink: 0;
+    }
+
+    .icon-fb { background: rgba(24,119,242,0.14); color: #4d9ff5; border: 1px solid rgba(24,119,242,0.24); }
+    .icon-ig { background: rgba(228,64,95,0.14);  color: #e8607a; border: 1px solid rgba(228,64,95,0.24); }
+    .icon-wa { background: rgba(37,211,102,0.14); color: #25d366; border: 1px solid rgba(37,211,102,0.24); }
+
+    /* ── ERROR ── */
+    .error-box {
+      background: rgba(231,76,60,0.08);
+      border: 1px solid rgba(231,76,60,0.22);
+      border-radius: 10px;
+      padding: 13px 16px;
+      color: #e87070;
+      font-size: 0.855rem;
+      margin-top: 16px;
+      display: none;
+    }
+
+    .error-box.show { display: block; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      header { padding: 18px 20px; }
+      .hero  { padding: 36px 20px 24px; }
+      .tabs-wrap { padding: 0 20px; }
+      .panel { padding: 26px 20px 50px; }
+      .form-grid { grid-template-columns: 1fr; }
+      .card { padding: 20px; }
+      .score-display { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-dot"></div>
+    <div class="logo-text">PERCIPIO<span>.</span>DIGITAL</div>
+    <a class="back-link" href="index.html">← Back to site</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">AI Automation — Live Demos</div>
+    <h1>See what <em>AI can do</em><br>for your business.</h1>
+    <p class="hero-desc">These are real, working automations — not mockups. Fill in your details and watch AI work in seconds.</p>
+  </section>
+
+  <!-- TABS -->
+  <div class="tabs-wrap">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('lead')">
+        <span class="tab-num">1</span>Lead Qualifier Bot
+      </button>
+      <button class="tab-btn" onclick="switchTab('content')">
+        <span class="tab-num">2</span>Social Media Generator
+      </button>
+    </div>
+  </div>
+
+  <!-- ══ PANEL 1: LEAD QUALIFIER ══ -->
+  <div class="panel active" id="panel-lead">
+    <div class="card">
+      <div class="card-title">Lead Qualifier Automation</div>
+      <div class="card-desc">Enter a new lead's details. AI scores them, drafts your reply, and suggests your next steps — instantly.</div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Lead Name</label>
+          <input id="l-name" type="text" placeholder="e.g. Sipho Dlamini" />
+        </div>
+        <div class="form-group">
+          <label>Business Type</label>
+          <input id="l-biz" type="text" placeholder="e.g. Restaurant, Hair Salon" />
+        </div>
+        <div class="form-group">
+          <label>Monthly Budget</label>
+          <select id="l-budget">
+            <option value="">Select range</option>
+            <option>Under R500</option>
+            <option>R500 – R2,000</option>
+            <option>R2,000 – R5,000</option>
+            <option>R5,000+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Main Problem</label>
+          <input id="l-problem" type="text" placeholder="e.g. No website, can't be found online" />
+        </div>
+      </div>
+
+      <button class="btn-primary" id="lead-btn" onclick="runLeadQualifier()">
+        <div class="spinner" id="lead-spinner"></div>
+        <span id="lead-btn-text">⚡ Qualify This Lead</span>
+      </button>
+
+      <div class="error-box" id="lead-error">Something went wrong. Please try again.</div>
+
+      <div class="results" id="lead-results">
+        <div class="results-label">Analysis Results</div>
+
+        <div class="score-display">
+          <div class="score-badge" id="score-badge">Hot Lead</div>
+          <div class="score-info">
+            <div class="score-title">Lead Quality Score</div>
+            <div class="score-sub" id="score-reason">—</div>
+          </div>
+        </div>
+
+        <div class="result-card">
+          <div class="result-card-header">
+            <span class="result-card-title">Suggested Reply</span>
+            <button class="copy-btn" onclick="copyText('lead-reply', this)">Copy</button>
+          </div>
+          <p id="lead-reply"></p>
+        </div>
+
+        <div class="result-card">
+          <div class="result-card-header">
+            <span class="result-card-title">Recommended Next Steps</span>
+          </div>
+          <ul class="steps-list" id="lead-steps"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PANEL 2: CONTENT GENERATOR ══ -->
+  <div class="panel" id="panel-content">
+    <div class="card">
+      <div class="card-title">Social Media Content Automation</div>
+      <div class="card-desc">Enter your business and promotion. AI generates three platform-ready posts in seconds — just copy and paste.</div>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Business Name</label>
+          <input id="c-biz" type="text" placeholder="e.g. Percipio Digital" />
+        </div>
+        <div class="form-group">
+          <label>Industry</label>
+          <input id="c-industry" type="text" placeholder="e.g. Web Development, Retail" />
+        </div>
+        <div class="form-group full">
+          <label>Product / Promotion</label>
+          <textarea id="c-promo" placeholder="e.g. Professional websites for small businesses, ready in 7 days from R1,500"></textarea>
+        </div>
+      </div>
+
+      <button class="btn-primary" id="content-btn" onclick="runContentGen()">
+        <div class="spinner" id="content-spinner"></div>
+        <span id="content-btn-text">✦ Generate 3 Posts</span>
+      </button>
+
+      <div class="error-box" id="content-error">Something went wrong. Please try again.</div>
+
+      <div class="results" id="content-results">
+        <div class="results-label">Ready-to-Post Content</div>
+
+        <div class="result-card">
+          <div class="result-card-header">
+            <div class="platform-row">
+              <div class="platform-icon icon-fb">FB</div>
+              <span class="result-card-title">Facebook</span>
+            </div>
+            <button class="copy-btn" onclick="copyText('c-facebook', this)">Copy</button>
+          </div>
+          <p id="c-facebook"></p>
+        </div>
+
+        <div class="result-card">
+          <div class="result-card-header">
+            <div class="platform-row">
+              <div class="platform-icon icon-ig">IG</div>
+              <span class="result-card-title">Instagram</span>
+            </div>
+            <button class="copy-btn" onclick="copyText('c-instagram', this)">Copy</button>
+          </div>
+          <p id="c-instagram"></p>
+        </div>
+
+        <div class="result-card">
+          <div class="result-card-header">
+            <div class="platform-row">
+              <div class="platform-icon icon-wa">WA</div>
+              <span class="result-card-title">WhatsApp Broadcast</span>
+            </div>
+            <button class="copy-btn" onclick="copyText('c-whatsapp', this)">Copy</button>
+          </div>
+          <p id="c-whatsapp"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ── TAB SWITCHING ────────────────────────────────────
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+
+      const idx = tab === 'lead' ? 0 : 1;
+      document.querySelectorAll('.tab-btn')[idx].classList.add('active');
+      document.getElementById('panel-' + tab).classList.add('active');
+    }
+
+    // ── COPY BUTTON ──────────────────────────────────────
+    function copyText(elementId, btn) {
+      const text = document.getElementById(elementId).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = '✓ Copied';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    }
+
+    // ── API CALL via Netlify Function ────────────────────
+    async function callClaude(systemPrompt, userPrompt) {
+      const res = await fetch('/.netlify/functions/claude', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ systemPrompt, userPrompt }),
+      });
+      if (!res.ok) throw new Error('Function error ' + res.status);
+      const data = await res.json();
+      return data.result;
+    }
+
+    // ── LOADING STATE HELPERS ────────────────────────────
+    function setLoading(prefix, loading, defaultText) {
+      const btn = document.getElementById(prefix + '-btn');
+      const spinner = document.getElementById(prefix + '-spinner');
+      const btnText = document.getElementById(prefix + '-btn-text');
+      btn.disabled = loading;
+      spinner.style.display = loading ? 'block' : 'none';
+      btnText.textContent = loading ? 'Working…' : defaultText;
+    }
+
+    // ── DEMO 1: LEAD QUALIFIER ───────────────────────────
+    async function runLeadQualifier() {
+      const name    = document.getElementById('l-name').value.trim();
+      const biz     = document.getElementById('l-biz').value.trim();
+      const budget  = document.getElementById('l-budget').value;
+      const problem = document.getElementById('l-problem').value.trim();
+
+      if (!name || !biz || !problem) return;
+
+      setLoading('lead', true, '⚡ Qualify This Lead');
+      document.getElementById('lead-results').classList.remove('show');
+      document.getElementById('lead-error').classList.remove('show');
+
+      try {
+        const raw = await callClaude(
+          `You are a sales intelligence AI for a web development freelancer. Respond ONLY with valid JSON — no backticks, no preamble.
+Return: { "score": "Hot|Warm|Cold", "scoreReason": "one sentence why", "reply": "personalised reply the freelancer should send this lead (2-3 sentences)", "steps": ["step1","step2","step3"] }`,
+          `Lead Name: ${name}\nBusiness: ${biz}\nBudget: ${budget || 'Not specified'}\nProblem: ${problem}`
+        );
+
+        const json = JSON.parse(raw.replace(/```json|```/g, '').trim());
+
+        const badge = document.getElementById('score-badge');
+        badge.textContent = json.score + ' Lead';
+        badge.className = 'score-badge score-' + json.score.toLowerCase();
+
+        document.getElementById('score-reason').textContent = json.scoreReason;
+        document.getElementById('lead-reply').textContent   = json.reply;
+
+        const ul = document.getElementById('lead-steps');
+        ul.innerHTML = json.steps.map((s, i) =>
+          `<li><span class="step-num">${i + 1}</span>${s}</li>`
+        ).join('');
+
+        document.getElementById('lead-results').classList.add('show');
+      } catch (e) {
+        document.getElementById('lead-error').classList.add('show');
+      } finally {
+        setLoading('lead', false, '⚡ Qualify This Lead');
+      }
+    }
+
+    // ── DEMO 2: CONTENT GENERATOR ────────────────────────
+    async function runContentGen() {
+      const biz      = document.getElementById('c-biz').value.trim();
+      const industry = document.getElementById('c-industry').value.trim();
+      const promo    = document.getElementById('c-promo').value.trim();
+
+      if (!biz || !industry || !promo) return;
+
+      setLoading('content', true, '✦ Generate 3 Posts');
+      document.getElementById('content-results').classList.remove('show');
+      document.getElementById('content-error').classList.remove('show');
+
+      try {
+        const raw = await callClaude(
+          `You are a social media copywriter. Respond ONLY with valid JSON — no backticks, no preamble.
+Return: { "facebook": "engaging facebook post (3-4 sentences)", "instagram": "punchy instagram caption with 8-10 relevant hashtags", "whatsapp": "friendly whatsapp broadcast message (2-3 sentences, conversational tone)" }`,
+          `Business: ${biz}\nIndustry: ${industry}\nPromotion: ${promo}`
+        );
+
+        const json = JSON.parse(raw.replace(/```json|```/g, '').trim());
+
+        document.getElementById('c-facebook').textContent  = json.facebook;
+        document.getElementById('c-instagram').textContent = json.instagram;
+        document.getElementById('c-whatsapp').textContent  = json.whatsapp;
+
+        document.getElementById('content-results').classList.add('show');
+      } catch (e) {
+        document.getElementById('content-error').classList.add('show');
+      } finally {
+        setLoading('content', false, '✦ Generate 3 Posts');
+      }
+    }
+  </script>
+</body>
+</html>
