@@ -11,44 +11,35 @@ exports.handler = async function (event) {
 
     const response = await fetch(url, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        system_instruction: {
-          parts: [{ text: systemPrompt }],
-        },
-        contents: [
-          {
-            role: "user",
-            parts: [{ text: userPrompt }],
-          },
-        ],
-        generationConfig: {
-          maxOutputTokens: 1000,
-        },
+        system_instruction: { parts: [{ text: systemPrompt }] },
+        contents: [{ role: "user", parts: [{ text: userPrompt }] }],
+        generationConfig: { maxOutputTokens: 1000 },
       }),
     });
+
+    const data = await response.json();
+    console.log("Gemini response:", JSON.stringify(data));
 
     if (!response.ok) {
       return {
         statusCode: response.status,
-        body: JSON.stringify({ error: "Gemini API error" }),
+        body: JSON.stringify({ error: "Gemini API error", details: data }),
       };
     }
 
-    const data = await response.json();
     const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
-
     return {
       statusCode: 200,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ result: text }),
     };
   } catch (err) {
+    console.log("Catch error:", err.message);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Internal server error" }),
+      body: JSON.stringify({ error: err.message }),
     };
   }
 };
