@@ -14,6 +14,8 @@
   --surface3: #202020;
   --silver:   #9BA8B0;
   --frost:    #C8D8E4;
+  --amber:    #C8863A;
+  --amber-dim: rgba(200,134,58,0.15);
   --text:     #F0EEF0;
   --text-dim: rgba(240,238,240,0.58);
   --rule:     rgba(155,168,176,0.1);
@@ -71,15 +73,8 @@ nav {
   justify-content: space-between;
   height: 64px;
 }
-.nav-logo {
-  display: flex;
-  align-items: center;
-}
-.nav-logo img {
-  height: 38px;
-  width: auto;
-  display: block;
-}
+.nav-logo { display: flex; align-items: center; }
+.nav-logo img { height: 38px; width: auto; display: block; }
 .nav-links { display: flex; gap: 36px; list-style: none; }
 .nav-links a {
   font-family: 'Oswald', sans-serif;
@@ -147,7 +142,8 @@ nav {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 55% 50% at 75% 25%, rgba(200,216,228,0.04) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 50% at 75% 25%, rgba(200,134,58,0.05) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(200,134,58,0.03) 0%, transparent 60%),
     linear-gradient(170deg, #080808 0%, #0e0e0e 50%, #111111 100%);
   z-index: -1;
 }
@@ -283,7 +279,7 @@ section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
   font-style: italic;
   color: var(--silver);
   line-height: 1.55;
-  border-left: 1px solid var(--silver);
+  border-left: 2px solid var(--amber);
   padding-left: 28px;
   margin-bottom: 40px;
 }
@@ -302,7 +298,7 @@ section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
   font-family: 'Playfair Display', serif;
   font-size: 40px;
   font-weight: 900;
-  color: var(--text);
+  color: var(--amber);
   line-height: 1;
   margin-bottom: 8px;
 }
@@ -334,7 +330,7 @@ section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 1px;
-  background: var(--frost);
+  background: var(--amber);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s cubic-bezier(.25,.8,.25,1);
@@ -368,8 +364,8 @@ section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
   font-size: 8px;
   letter-spacing: 2px;
   text-transform: uppercase;
-  border: 1px solid var(--rule-mid);
-  color: var(--muted);
+  border: 1px solid rgba(200,134,58,0.3);
+  color: var(--amber);
   padding: 3px 8px;
   margin-bottom: 18px;
 }
@@ -384,7 +380,7 @@ section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 260px;
+  min-height: 220px;
   padding: 40px;
   position: relative;
   overflow: hidden;
@@ -400,11 +396,11 @@ section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
 }
 .portfolio-thumb-icon { font-size: 52px; z-index: 1; }
 .portfolio-content {
-  padding: 44px 48px;
+  padding: 36px 44px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-left: 1px solid var(--frost);
+  border-left: 1px solid var(--amber);
 }
 .portfolio-tag {
   font-family: 'Oswald', sans-serif;
@@ -412,12 +408,12 @@ section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 14px;
+  margin-bottom: 12px;
 }
-.portfolio-status { color: var(--frost); }
-.portfolio-name { font-family: 'Playfair Display', serif; font-size: clamp(20px, 3vw, 30px); color: var(--text); margin-bottom: 16px; line-height: 1.2; }
-.portfolio-desc { font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 300; color: var(--text-dim); line-height: 1.8; margin-bottom: 24px; }
-.portfolio-features { display: flex; flex-wrap: wrap; gap: 8px; }
+.portfolio-status { color: var(--amber); }
+.portfolio-name { font-family: 'Playfair Display', serif; font-size: clamp(18px, 3vw, 26px); color: var(--text); margin-bottom: 14px; line-height: 1.2; }
+.portfolio-desc { font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 300; color: var(--text-dim); line-height: 1.8; margin-bottom: 20px; }
+.portfolio-features { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
 .portfolio-feature {
   font-family: 'Oswald', sans-serif;
   font-size: 8px;
@@ -427,6 +423,19 @@ section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
   color: var(--muted);
   padding: 4px 10px;
 }
+.portfolio-link {
+  font-family: 'Oswald', sans-serif;
+  font-size: 9px;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--amber);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+  width: fit-content;
+}
+.portfolio-link:hover { opacity: 0.7; }
 
 /* PROCESS */
 #process { background: var(--black); }
@@ -445,7 +454,7 @@ section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
 .process-step:last-child { padding-right: 0; }
 .process-num {
   width: 62px; height: 62px;
-  border: 1px solid var(--rule-mid);
+  border: 1px solid var(--amber);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -453,7 +462,7 @@ section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
   font-family: 'Playfair Display', serif;
   font-size: 20px;
   font-weight: 900;
-  color: var(--silver);
+  color: var(--amber);
   margin: 0 auto 32px;
   background: var(--black);
   position: relative;
@@ -473,14 +482,14 @@ section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
 .credentials-label { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; }
 .credentials-items { display: flex; flex-direction: column; gap: 16px; }
 .credential { display: flex; align-items: flex-start; gap: 16px; }
-.credential-line { width: 1px; height: 36px; background: var(--silver); flex-shrink: 0; margin-top: 4px; opacity: 0.5; }
+.credential-line { width: 1px; height: 36px; background: var(--amber); flex-shrink: 0; margin-top: 4px; opacity: 0.6; }
 .credential-text { font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 400; color: var(--text); letter-spacing: 0.3px; }
 .credential-text span { font-size: 10px; color: var(--muted); display: block; letter-spacing: 1.5px; margin-top: 3px; text-transform: uppercase; }
 .credentials-badge { text-align: center; flex-shrink: 0; }
-.badge-ring { width: 116px; height: 116px; border: 1px solid var(--rule-mid); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; position: relative; }
+.badge-ring { width: 116px; height: 116px; border: 1px solid rgba(200,134,58,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; position: relative; }
 .badge-ring::before { content: ''; position: absolute; inset: 8px; border: 1px solid var(--rule); border-radius: 50%; }
 .badge-ring-inner { text-align: center; z-index: 1; }
-.badge-ring-label { font-family: 'Oswald', sans-serif; font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--silver); display: block; line-height: 1.4; }
+.badge-ring-label { font-family: 'Oswald', sans-serif; font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); display: block; line-height: 1.4; }
 .badge-ring-icon { font-size: 20px; display: block; margin: 5px 0; }
 .badge-sub { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
 
@@ -492,7 +501,7 @@ section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
   top: -300px; right: -300px;
   width: 600px; height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(200,216,228,0.025) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(200,134,58,0.04) 0%, transparent 70%);
   pointer-events: none;
 }
 .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: center; }
@@ -500,7 +509,7 @@ section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
 .contact-headline em { font-style: italic; color: var(--silver); }
 .contact-tagline { font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 300; color: var(--text-dim); letter-spacing: 0.8px; line-height: 1.85; margin-bottom: 40px; max-width: 380px; }
 .contact-location { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 28px; }
-.contact-location strong { color: var(--silver); }
+.contact-location strong { color: var(--amber); }
 .contact-right { display: flex; flex-direction: column; gap: 1px; background: var(--rule); }
 .contact-cta-block { background: var(--surface); padding: 32px 36px; display: flex; flex-direction: column; gap: 18px; }
 .contact-cta-label { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
@@ -522,7 +531,7 @@ section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
 /* FOOTER */
 footer { background: var(--surface); border-top: 1px solid var(--rule); padding: 36px var(--gutter); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
 .footer-brand { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 900; color: var(--text); }
-.footer-brand span { color: var(--frost); }
+.footer-brand span { color: var(--amber); }
 .footer-copy { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2.5px; color: var(--muted); text-transform: uppercase; }
 
 /* AI IN ACTION */
@@ -539,7 +548,7 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
   top: -200px; right: -200px;
   width: 500px; height: 500px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(200,216,228,0.03) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(200,134,58,0.04) 0%, transparent 70%);
   pointer-events: none;
 }
 .ai-demos-inner {
@@ -559,7 +568,7 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
   color: var(--text);
   margin-bottom: 22px;
 }
-.ai-demos-headline em { font-style: italic; color: var(--silver); }
+.ai-demos-headline em { font-style: italic; color: var(--amber); }
 .ai-demos-desc {
   font-family: 'Oswald', sans-serif;
   font-size: 13px;
@@ -575,16 +584,16 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
   font-size: 10px;
   letter-spacing: 3.5px;
   text-transform: uppercase;
-  background: var(--text);
+  background: var(--amber);
   color: var(--black);
   padding: 16px 36px;
-  border: 1px solid var(--text);
+  border: 1px solid var(--amber);
   display: inline-flex;
   align-items: center;
   gap: 12px;
   transition: background 0.25s, color 0.25s, transform 0.2s;
 }
-.ai-demos-btn:hover { background: var(--frost); border-color: var(--frost); transform: translateY(-2px); }
+.ai-demos-btn:hover { background: transparent; color: var(--amber); transform: translateY(-2px); }
 .ai-demos-right {
   display: flex;
   flex-direction: column;
@@ -604,17 +613,12 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
   font-family: 'Playfair Display', serif;
   font-size: 28px;
   font-weight: 900;
-  color: var(--rule-mid);
+  color: var(--amber-dim);
   line-height: 1;
   flex-shrink: 0;
   padding-top: 4px;
 }
-.ai-demo-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 17px;
-  color: var(--text);
-  margin-bottom: 7px;
-}
+.ai-demo-name { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--text); margin-bottom: 7px; }
 .ai-demo-desc {
   font-family: 'Oswald', sans-serif;
   font-size: 12px;
@@ -640,7 +644,7 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
   .portfolio-item { grid-template-columns: 1fr; }
   .portfolio-thumb { min-height: 160px; }
-  .portfolio-content { padding: 28px 28px; border-left: none; border-top: 1px solid var(--frost); }
+  .portfolio-content { padding: 28px 28px; border-left: none; border-top: 1px solid var(--amber); }
   .process-steps { grid-template-columns: 1fr; }
   .process-steps::before { display: none; }
   .process-step { text-align: left; padding: 28px 0; border-bottom: 1px solid var(--rule); display: flex; gap: 24px; align-items: flex-start; }
@@ -718,7 +722,7 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
             <div class="about-stat-label">Starter Site Delivery</div>
           </div>
           <div class="about-stat">
-            <div class="about-stat-num">3+</div>
+            <div class="about-stat-num">6+</div>
             <div class="about-stat-label">Live Portfolio Sites</div>
           </div>
           <div class="about-stat">
@@ -787,7 +791,7 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
 <section id="ai-demos">
   <div class="ai-demos-inner">
     <div class="ai-demos-left">
-      <span class="section-eyebrow reveal">Live & Working</span>
+      <span class="section-eyebrow reveal">Live &amp; Working</span>
       <h2 class="ai-demos-headline reveal reveal-d1">AI automation<br><em>you can try right now.</em></h2>
       <p class="ai-demos-desc reveal reveal-d2">These aren't screenshots or concepts — they're real, working tools powered by AI. Fill in your business details and see what automation can do for you in seconds.</p>
       <a href="demos.html" class="ai-demos-btn reveal reveal-d3">
@@ -816,59 +820,120 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
 
 <section id="portfolio">
   <div class="container">
-    <span class="section-eyebrow reveal">Real Work. Real Clients.</span>
+    <span class="section-eyebrow reveal">Built by Percipio Digital</span>
     <h2 class="section-title reveal reveal-d1">Portfolio</h2>
     <div class="portfolio-items">
+
+      <!-- BRAAI RUS -->
+      <div class="portfolio-item reveal reveal-d1">
+        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">🔥</span></div>
+        <div class="portfolio-content">
+          <div class="portfolio-tag">Self-Catering Accommodation · Lambert's Bay · <span class="portfolio-status">Live</span></div>
+          <h3 class="portfolio-name">Braai Rus Self Catering</h3>
+          <p class="portfolio-desc">A mobile-first accommodation site for a West Coast self-catering getaway. Built to turn browsers into bookings — clear unit listings, WhatsApp enquiry, and the kind of coastal atmosphere that sells itself.</p>
+          <div class="portfolio-features">
+            <span class="portfolio-feature">Accommodation Listings</span>
+            <span class="portfolio-feature">WhatsApp Booking</span>
+            <span class="portfolio-feature">Rates &amp; Availability</span>
+            <span class="portfolio-feature">Photo Gallery</span>
+            <span class="portfolio-feature">Mobile-First</span>
+          </div>
+          <a href="https://braairusselfcatering.netlify.app" target="_blank" class="portfolio-link">View Live Site →</a>
+        </div>
+      </div>
+
+      <!-- EMBER & CO -->
       <div class="portfolio-item reveal reveal-d2">
-        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">🐟</span></div>
+        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">☕</span></div>
         <div class="portfolio-content">
-          <div class="portfolio-tag">E-Commerce &amp; Ordering · Lambert's Bay · <span class="portfolio-status">In Review</span></div>
-          <h3 class="portfolio-name">Schala's Fisheries</h3>
-          <p class="portfolio-desc">Mobile-first product and ordering site for a local fish merchant. Designed to put the business in front of customers where they already are — their phones. WhatsApp ordering means no cart, no friction, just a message and a sale.</p>
+          <div class="portfolio-tag">Specialty Coffee · Lambert's Bay · <span class="portfolio-status">Demo</span></div>
+          <h3 class="portfolio-name">Ember &amp; Co.</h3>
+          <p class="portfolio-desc">A cinematic, dark-roast coffee shop site with an AI barista chat widget named Ash. Guests can ask for recommendations, check the menu, and get hours — all through a live AI conversation built into the page.</p>
           <div class="portfolio-features">
-            <span class="portfolio-feature">WhatsApp Ordering</span>
-            <span class="portfolio-feature">Product Listings</span>
+            <span class="portfolio-feature">AI Chat Widget</span>
+            <span class="portfolio-feature">Full Menu</span>
+            <span class="portfolio-feature">Brand Story</span>
             <span class="portfolio-feature">Trading Hours</span>
-            <span class="portfolio-feature">Google Maps</span>
-            <span class="portfolio-feature">Snoek Season Section</span>
             <span class="portfolio-feature">Mobile-First</span>
           </div>
+          <a href="https://berneleesimon-cpu.github.io/ember-co" target="_blank" class="portfolio-link">View Demo →</a>
         </div>
       </div>
+
+      <!-- BOLDMARK -->
       <div class="portfolio-item reveal reveal-d3">
-        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">🌊</span></div>
+        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">🖨️</span></div>
         <div class="portfolio-content">
-          <div class="portfolio-tag">Community Hub · Lambert's Bay · <span class="portfolio-status">In Review</span></div>
-          <h3 class="portfolio-name">Chief Ferdi Fransman<br>Community Hub</h3>
-          <p class="portfolio-desc">A digital home for a Khoi-San community leader and Deputy Chairperson of the Small-Scale Fisheries Co-Management structure. Built to serve a community that needed a reliable, trusted information source online.</p>
+          <div class="portfolio-tag">Signs &amp; Printing · Lambert's Bay · <span class="portfolio-status">Demo</span></div>
+          <h3 class="portfolio-name">BoldMark Signs &amp; Print</h3>
+          <p class="portfolio-desc">A bold, print-aesthetic site for a signs and printing company. Custom cursor, Bebas Neue display type, and a CMYK-inspired colour palette that makes a visual statement before a word is read.</p>
           <div class="portfolio-features">
-            <span class="portfolio-feature">Community Updates</span>
-            <span class="portfolio-feature">Live Weather Feed</span>
-            <span class="portfolio-feature">Government Partnerships</span>
-            <span class="portfolio-feature">Heritage Section</span>
-            <span class="portfolio-feature">Khoi-San Identity</span>
+            <span class="portfolio-feature">Service Listings</span>
+            <span class="portfolio-feature">Custom Cursor</span>
+            <span class="portfolio-feature">WhatsApp Quote</span>
+            <span class="portfolio-feature">Portfolio Gallery</span>
             <span class="portfolio-feature">Mobile-First</span>
           </div>
+          <a href="https://berneleesimon-cpu.github.io/boldmark-signs" target="_blank" class="portfolio-link">View Demo →</a>
         </div>
       </div>
+
+      <!-- AMARA HOME -->
+      <div class="portfolio-item reveal reveal-d4">
+        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">🪑</span></div>
+        <div class="portfolio-content">
+          <div class="portfolio-tag">Furniture &amp; Home · Lambert's Bay · <span class="portfolio-status">Demo</span></div>
+          <h3 class="portfolio-name">Amara Home</h3>
+          <p class="portfolio-desc">Warm, family-first furniture store for a foreigner building something from nothing on the West Coast. Terra cotta palette, Fraunces serif, and a human story that makes affordable furniture feel aspirational.</p>
+          <div class="portfolio-features">
+            <span class="portfolio-feature">Product Listings</span>
+            <span class="portfolio-feature">Brand Story</span>
+            <span class="portfolio-feature">WhatsApp Orders</span>
+            <span class="portfolio-feature">Warm Aesthetic</span>
+            <span class="portfolio-feature">Mobile-First</span>
+          </div>
+          <a href="https://berneleesimon-cpu.github.io/amara-home" target="_blank" class="portfolio-link">View Demo →</a>
+        </div>
+      </div>
+
+      <!-- WESTLAND PROPERTY -->
+      <div class="portfolio-item reveal reveal-d5">
+        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">🏡</span></div>
+        <div class="portfolio-content">
+          <div class="portfolio-tag">Real Estate · West Coast · <span class="portfolio-status">Demo</span></div>
+          <h3 class="portfolio-name">Westland Property</h3>
+          <p class="portfolio-desc">A premium real estate agency site for holiday homes, vacant land, and coastal living on the West Coast. Playfair Display serif, sage green palette — sophisticated without being cold.</p>
+          <div class="portfolio-features">
+            <span class="portfolio-feature">Property Listings</span>
+            <span class="portfolio-feature">Agent Profiles</span>
+            <span class="portfolio-feature">WhatsApp Enquiry</span>
+            <span class="portfolio-feature">Premium Design</span>
+            <span class="portfolio-feature">Mobile-First</span>
+          </div>
+          <a href="https://berneleesimon-cpu.github.io/westland-property" target="_blank" class="portfolio-link">View Demo →</a>
+        </div>
+      </div>
+
+      <!-- THE ANCHOR TABLE -->
+      <div class="portfolio-item reveal reveal-d5">
+        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">⚓</span></div>
+        <div class="portfolio-content">
+          <div class="portfolio-tag">Seafood Restaurant · West Coast · <span class="portfolio-status">Demo</span></div>
+          <h3 class="portfolio-name">The Anchor Table</h3>
+          <p class="portfolio-desc">An upmarket West Coast seafood restaurant site. Deep navy, amber accents, noise texture, and Bebas Neue display — the kind of site that makes a visitor feel the salt air before they've booked a table.</p>
+          <div class="portfolio-features">
+            <span class="portfolio-feature">Full Menu</span>
+            <span class="portfolio-feature">Reservations</span>
+            <span class="portfolio-feature">Brand Story</span>
+            <span class="portfolio-feature">Atmospheric Design</span>
+            <span class="portfolio-feature">Mobile-First</span>
+          </div>
+          <a href="https://berneleesimon-cpu.github.io/anchor-table" target="_blank" class="portfolio-link">View Demo →</a>
+        </div>
+      </div>
+
     </div>
   </div>
-  <div class="portfolio-item reveal reveal-d4">
-<div class="portfolio-thumb"><span class="portfolio-thumb-icon">🔥</span></div>
-<div class="portfolio-content">
-<div class="portfolio-tag">Self-Catering Accommodation · Lambert's Bay · <span class="portfolio-status">Live</span></div>
-<h3 class="portfolio-name">Braai Rus Self Catering</h3>
-<p class="portfolio-desc">A mobile-first accommodation site for a West Coast self-catering getaway. Built to turn browsers into bookings — clear unit listings, WhatsApp enquiry, and the kind of coastal atmosphere that sells itself.</p>
-<div class="portfolio-features">
-<span class="portfolio-feature">Accommodation Listings</span>
-<span class="portfolio-feature">WhatsApp Booking</span>
-<span class="portfolio-feature">Rates &amp; Availability</span>
-<span class="portfolio-feature">Photo Gallery</span>
-<span class="portfolio-feature">Mobile-First</span>
-<span class="portfolio-feature">Live Site</span>
-</div>
-</div>
-</div>
 </section>
 
 <section id="process">
@@ -916,7 +981,7 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
         </div>
         <div class="credential reveal reveal-d3">
           <div class="credential-line"></div>
-          <div class="credential-text">Self-Taught Web Development<span>HTML · CSS · JavaScript · Netlify</span></div>
+          <div class="credential-text">Self-Taught Web Development<span>HTML · CSS · JavaScript · GitHub Pages</span></div>
         </div>
         <div class="credential reveal reveal-d4">
           <div class="credential-line"></div>
