@@ -186,10 +186,10 @@
     }
 
     async function callAPI(systemPrompt, userPrompt) {
-      const res = await fetch('/.netlify/function/claude', {
+      const res = await fetch('/.netlify/functions/claude', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ systemPrompt, userPrompt }),
+        body: JSON.stringify({ prompt: systemPrompt + '\n\n' + userPrompt }),
       });
       if (!res.ok) throw new Error('Error ' + res.status);
       const data = await res.json();
