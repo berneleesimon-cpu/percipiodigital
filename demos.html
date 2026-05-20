@@ -186,7 +186,7 @@
     }
 
     async function callAPI(systemPrompt, userPrompt) {
-      const res = await fetch('https://percipiodigital.vercel.app/api/claude', {
+      const res = await fetch('/.netlify/function/claude', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ systemPrompt, userPrompt }),
