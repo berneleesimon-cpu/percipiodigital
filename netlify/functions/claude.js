@@ -12,24 +12,23 @@ exports.handler = async function(event) {
   }
 
   try {
-    let body;
-    try {
-      const raw = event.isBase64Encoded
-        ? Buffer.from(event.body, 'base64').toString('utf8')
-        : event.body;
-      body = typeof raw === 'string' ? JSON.parse(raw) : raw;
-    } catch(e) {
-      body = {};
-    }
+    // Log everything for debugging
+    console.log('Method:', event.httpMethod);
+    console.log('Body received:', event.body);
+    console.log('Key exists:', !!process.env.GROQ_API_KEY);
+    console.log('Key prefix:', process.env.GROQ_API_KEY ? process.env.GROQ_API_KEY.substring(0, 8) : 'MISSING');
 
-    const prompt = body.prompt || body.userPrompt || body.message || '';
+    const raw = event.isBase64Encoded
+      ? Buffer.from(event.body, 'base64').toString('utf8')
+      : event.body;
+
+    const body = JSON.parse(raw);
+    const prompt = body.prompt || '';
+
+    console.log('Prompt length:', prompt.length);
 
     if (!prompt) {
-      return {
-        statusCode: 400,
-        headers,
-        body: JSON.stringify({ error: 'No prompt received', received: JSON.stringify(body) })
-      };
+      return { statusCode: 400, headers, body: JSON.stringify({ error: 'No prompt' }) };
     }
 
     const postData = JSON.stringify({
@@ -52,18 +51,23 @@ exports.handler = async function(event) {
 
       const req = https.request(options, (res) => {
         let data = '';
+        console.log('Groq status:', res.statusCode);
         res.on('data', chunk => { data += chunk; });
         res.on('end', () => {
+          console.log('Groq response:', data.substring(0, 200));
           try {
             const parsed = JSON.parse(data);
             const text = parsed.choices && parsed.choices[0] && parsed.choices[0].message && parsed.choices[0].message.content;
             if (text) resolve(text);
-            else reject(new Error('Groq error: ' + data));
+            else reject(new Error('No content: ' + data.substring(0, 100)));
           } catch(e) { reject(e); }
         });
       });
 
-      req.on('error', reject);
+      req.on('error', (e) => {
+        console.log('Request error:', e.message);
+        reject(e);
+      });
       req.write(postData);
       req.end();
     });
@@ -71,6 +75,7 @@ exports.handler = async function(event) {
     return { statusCode: 200, headers, body: JSON.stringify({ result }) };
 
   } catch (err) {
+    console.log('Handler error:', err.message);
     return { statusCode: 500, headers, body: JSON.stringify({ error: err.message }) };
   }
 };
