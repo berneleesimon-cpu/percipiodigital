@@ -278,7 +278,17 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
   .hero-location { display: none; }
   .ai-demos-inner { grid-template-columns: 1fr; gap: 48px; }
   .ai-demos-desc { max-width: 100%; }
-  .hero-logo-wrap { display: none; }
+  .hero-logo-wrap {
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: 24px;
+    animation: heroFloat 5s ease-in-out infinite;
+  }
+  .hero-logo-wrap img {
+    width: 90px;
+    animation: heroSpin 18s linear infinite;
+  }
 }
 @media (max-width: 560px) {
   .services-grid { grid-template-columns: 1fr; }
