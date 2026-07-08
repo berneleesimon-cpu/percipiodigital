@@ -65,9 +65,9 @@ nav {
 .nav-logo img { height: 38px; width: auto; display: block; }
 .nav-links { display: flex; gap: 36px; list-style: none; }
 .nav-links a { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); transition: color 0.25s; }
-.nav-links a:hover { color: var(--text); }
+.nav-links a:hover { color: var(--amber); }
 .nav-cta { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; border: 1px solid var(--rule-mid); color: var(--silver); padding: 10px 22px; transition: border-color 0.25s, color 0.25s; }
-.nav-cta:hover { border-color: var(--silver); color: var(--text); }
+.nav-cta:hover { border-color: var(--amber); color: var(--amber); }
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
 .hamburger span { display: block; width: 22px; height: 1px; background: var(--silver); }
 .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--surface); border-bottom: 1px solid var(--rule-mid); padding: 28px var(--gutter); z-index: 890; flex-direction: column; gap: 22px; }
@@ -166,6 +166,19 @@ section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
 .service-desc { font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 300; color: var(--text-dim); line-height: 1.75; margin-bottom: 24px; }
 .service-price { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 2.5px; color: var(--silver); text-transform: uppercase; border-top: 1px solid var(--rule); padding-top: 18px; }
 .service-badge { display: inline-block; font-family: 'Oswald', sans-serif; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid rgba(200,134,58,0.3); color: var(--amber); padding: 3px 8px; margin-bottom: 18px; }
+
+/* PRICING */
+#pricing { background: var(--surface); }
+.pricing-groups { display: flex; flex-direction: column; gap: 1px; background: var(--rule); }
+.pricing-group { background: var(--black); padding: 36px 40px; }
+.pricing-group-label { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 22px; }
+.pricing-row { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 14px 0; border-top: 1px solid var(--rule); }
+.pricing-row:first-of-type { border-top: none; }
+.pricing-row-left { flex: 1; }
+.pricing-name { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--text); margin-bottom: 4px; }
+.pricing-desc { font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 300; color: var(--text-dim); line-height: 1.6; }
+.pricing-price { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1px; color: var(--amber); font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+.pricing-note { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 300; font-style: italic; color: var(--muted); margin-top: 16px; line-height: 1.7; }
 
 /* PORTFOLIO */
 #portfolio { background: var(--surface); }
@@ -283,18 +296,20 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
     justify-content: center;
     align-items: center;
     position: absolute;
-    top: 80px;
+    top: 64px;
     left: 0;
     right: 0;
-    height: 48vh;
-    padding-top: 48px;
+    height: 56vh;
+    padding-top: 80px;
     animation: heroFloat 5s ease-in-out infinite;
   }
   .hero-logo-wrap img {
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
     object-fit: contain;
     animation: heroSpin 18s linear infinite;
+    filter: drop-shadow(0 0 40px rgba(200,134,58,0.7)) drop-shadow(0 0 80px rgba(200,134,58,0.35));
+    opacity: 1;
   }
 }
 @media (max-width: 560px) {
@@ -303,6 +318,8 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
   .hero-ctas { flex-direction: column; }
   .btn-primary, .btn-secondary { justify-content: center; }
   footer { flex-direction: column; text-align: center; }
+  .pricing-row { flex-direction: column; gap: 4px; }
+  .pricing-group { padding: 32px 24px; }
 }
 </style>
 </head>
@@ -315,11 +332,12 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
     <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="demos.html">AI Demos</a></li>
   </ul>
-  <a href="https://wa.me/27660910271" target="_blank" class="nav-cta">Let's Talk</a>
+  <a href="https://wa.me/27738399334" target="_blank" class="nav-cta">Let's Talk</a>
   <div class="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
   </div>
@@ -328,10 +346,11 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="toggleMenu()">About</a>
   <a href="#services" onclick="toggleMenu()">Services</a>
+  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
   <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
   <a href="#process" onclick="toggleMenu()">Process</a>
   <a href="demos.html" onclick="toggleMenu()">AI Demos →</a>
-  <a href="https://wa.me/27660910271" target="_blank" onclick="toggleMenu()">WhatsApp Us →</a>
+  <a href="https://wa.me/27738399334" target="_blank" onclick="toggleMenu()">WhatsApp Us →</a>
 </div>
 
 <section id="hero">
@@ -350,7 +369,7 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
       See My Work
       <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7H13M7 1L13 7L7 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
-    <a href="https://wa.me/27660910271" target="_blank" class="btn-secondary">
+    <a href="https://wa.me/27738399334" target="_blank" class="btn-secondary">
       Let's Build Something
       <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
@@ -379,7 +398,7 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
             <div class="about-stat-label">Powered Builds</div>
           </div>
           <div>
-            <div class="about-stat-num">R300</div>
+            <div class="about-stat-num">R250</div>
             <div class="about-stat-label">Maintenance From</div>
           </div>
         </div>
@@ -439,8 +458,106 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
         <div class="service-num">03 — Maintenance</div>
         <h3 class="service-name">Monthly Maintenance</h3>
         <p class="service-desc">Keep your site updated, running, and working for you every month. Updates, fixes, and small changes handled without the back-and-forth.</p>
-        <div class="service-price">From R300 p.m</div>
+        <div class="service-price">From R250 p.m</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <span class="section-eyebrow reveal">The Full Price List</span>
+    <h2 class="section-title reveal reveal-d1">Straightforward<br><em>pricing.</em></h2>
+    <div class="pricing-groups">
+
+      <div class="pricing-group reveal reveal-d1">
+        <div class="pricing-group-label">Website Design · Once-Off</div>
+        <div class="pricing-row">
+          <div class="pricing-row-left">
+            <div class="pricing-name">Starter</div>
+            <div class="pricing-desc">Single page, WhatsApp integration, mobile-first build.</div>
+          </div>
+          <div class="pricing-price">R1,500</div>
+        </div>
+        <div class="pricing-row">
+          <div class="pricing-row-left">
+            <div class="pricing-name">Premium</div>
+            <div class="pricing-desc">Multi-section site, gallery / product listings, WhatsApp ordering.</div>
+          </div>
+          <div class="pricing-price">R3,000</div>
+        </div>
+        <div class="pricing-row">
+          <div class="pricing-row-left">
+            <div class="pricing-name">Exclusive</div>
+            <div class="pricing-desc">Custom builds, AI tool integration, extra revision rounds.</div>
+          </div>
+          <div class="pricing-price">R5,000+</div>
+        </div>
+      </div>
+
+      <div class="pricing-group reveal reveal-d2">
+        <div class="pricing-group-label">AI-Powered Add-Ons</div>
+        <div class="pricing-row">
+          <div class="pricing-row-left">
+            <div class="pricing-name">Lead Qualifier Bot</div>
+            <div class="pricing-desc">Scores incoming leads and drafts your reply automatically.</div>
+          </div>
+          <div class="pricing-price">Custom Quote</div>
+        </div>
+        <div class="pricing-row">
+          <div class="pricing-row-left">
+            <div class="pricing-name">Content Generator</div>
+            <div class="pricing-desc">Ready-to-post social captions for your business, on demand.</div>
+          </div>
+          <div class="pricing-price">Custom Quote</div>
+        </div>
+        <div class="pricing-row">
+          <div class="pricing-row-left">
+            <div class="pricing-name">AI Concierge</div>
+            <div class="pricing-desc">Groq-powered chat widget for instant guest / customer questions.</div>
+          </div>
+          <div class="pricing-price">Custom Quote</div>
+        </div>
+      </div>
+
+      <div class="pricing-group reveal reveal-d3">
+        <div class="pricing-group-label">Monthly Care Plans</div>
+        <div class="pricing-row">
+          <div class="pricing-row-left">
+            <div class="pricing-name">Basic</div>
+            <div class="pricing-desc">Uptime checks, small text / image edits.</div>
+          </div>
+          <div class="pricing-price">R250 / mo</div>
+        </div>
+        <div class="pricing-row">
+          <div class="pricing-row-left">
+            <div class="pricing-name">Standard</div>
+            <div class="pricing-desc">Basic + monthly content update, priority WhatsApp support.</div>
+          </div>
+          <div class="pricing-price">R500 / mo</div>
+        </div>
+        <div class="pricing-row">
+          <div class="pricing-row-left">
+            <div class="pricing-name">Premium</div>
+            <div class="pricing-desc">Standard + AI tool upkeep, quarterly check-in call.</div>
+          </div>
+          <div class="pricing-price">R900 / mo</div>
+        </div>
+      </div>
+
+      <div class="pricing-group reveal reveal-d4">
+        <div class="pricing-group-label">Domain Registration &amp; Setup</div>
+        <div class="pricing-row">
+          <div class="pricing-row-left">
+            <div class="pricing-name">Domain Setup</div>
+            <div class="pricing-desc">Registration passed through at cost (~R200–250/yr), plus a flat handling fee for DNS setup and configuration.</div>
+          </div>
+          <div class="pricing-price">R150 once-off</div>
+        </div>
+        <div class="pricing-note">The domain itself is never marked up — you only pay for the time it takes to set it up correctly.</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -455,119 +572,49 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
       <div class="portfolio-item reveal reveal-d1">
         <div class="portfolio-thumb"><span class="portfolio-thumb-icon">🔥</span></div>
         <div class="portfolio-content">
-          <div class="portfolio-tag">Self-Catering Accommodation · Lambert's Bay · <span class="portfolio-status">Live</span></div>
+          <div class="portfolio-tag">Self-Catering Accommodation · Lambert's Bay · <span class="portfolio-status">Demo</span></div>
           <h3 class="portfolio-name">Braai Rus Self Catering</h3>
-          <p class="portfolio-desc">A mobile-first accommodation site for a West Coast self-catering getaway. Built to turn browsers into bookings — clear unit listings, WhatsApp enquiry, and the kind of coastal atmosphere that sells itself.</p>
+          <p class="portfolio-desc">A mobile-first accommodation site for a West Coast self-catering getaway. Built to turn browsers into bookings — clear unit listings, WhatsApp enquiry, and the kind of coastal atmosphere that sells itself. Now being upgraded with a Groq-powered AI concierge for instant guest questions and availability.</p>
           <div class="portfolio-features">
             <span class="portfolio-feature">Accommodation Listings</span>
             <span class="portfolio-feature">WhatsApp Booking</span>
             <span class="portfolio-feature">Rates &amp; Availability</span>
             <span class="portfolio-feature">Photo Gallery</span>
+            <span class="portfolio-feature">AI Concierge — In Progress</span>
             <span class="portfolio-feature">Mobile-First</span>
           </div>
-          <a href="https://braairusselfcatering.netlify.app" target="_blank" class="portfolio-link">View Live Site →</a>
+          <a href="https://braairusselfcatering.netlify.app" target="_blank" class="portfolio-link">View Demo →</a>
         </div>
       </div>
 
       <div class="portfolio-item reveal reveal-d2">
-        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">🛍️</span></div>
+        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">🪶</span></div>
         <div class="portfolio-content">
-          <div class="portfolio-tag">General Store · Lambert's Bay · <span class="portfolio-status">Demo</span></div>
-          <h3 class="portfolio-name">Lambert's Lifestyle Store</h3>
-          <p class="portfolio-desc">A stylish general store site covering hair products, clothing, footwear and beauty. Gold and black aesthetic with WhatsApp ordering built in — the kind of site that makes a local shop look like a brand.</p>
+          <div class="portfolio-tag">Community &amp; Culture · Lambert's Bay · <span class="portfolio-status">Live</span></div>
+          <h3 class="portfolio-name">Chief Ferdi Fransman</h3>
+          <p class="portfolio-desc">A site built for a community leader on the West Coast. Deep navy and gold branding, Khoisan geometric elements, and a dual certificate section that gives the page the weight the role deserves.</p>
           <div class="portfolio-features">
-            <span class="portfolio-feature">Product Listings</span>
-            <span class="portfolio-feature">WhatsApp Orders</span>
-            <span class="portfolio-feature">Category Layout</span>
-            <span class="portfolio-feature">ZAR Pricing</span>
-            <span class="portfolio-feature">Mobile-First</span>
-          </div>
-          <a href="lamberts-lifestyle.html" target="_blank" class="portfolio-link">View Demo →</a>
-        </div>
-      </div>
-
-      <div class="portfolio-item reveal reveal-d2">
-        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">☕</span></div>
-        <div class="portfolio-content">
-          <div class="portfolio-tag">Specialty Coffee · Lambert's Bay · <span class="portfolio-status">Demo</span></div>
-          <h3 class="portfolio-name">Ember &amp; Co.</h3>
-          <p class="portfolio-desc">A cinematic, dark-roast coffee shop site with an AI barista chat widget named Ash. Guests can ask for recommendations, check the menu, and get hours — all through a live AI conversation built into the page.</p>
-          <div class="portfolio-features">
-            <span class="portfolio-feature">AI Chat Widget</span>
-            <span class="portfolio-feature">Full Menu</span>
             <span class="portfolio-feature">Brand Story</span>
-            <span class="portfolio-feature">Trading Hours</span>
+            <span class="portfolio-feature">Certificate Section</span>
+            <span class="portfolio-feature">Scroll Animation</span>
             <span class="portfolio-feature">Mobile-First</span>
           </div>
-          <a href="https://berneleesimon-cpu.github.io/ember-co" target="_blank" class="portfolio-link">View Demo →</a>
+          <a href="https://ferdifransman.netlify.app" target="_blank" class="portfolio-link">View Live Site →</a>
         </div>
       </div>
 
       <div class="portfolio-item reveal reveal-d3">
-        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">🖨️</span></div>
+        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">💍</span></div>
         <div class="portfolio-content">
-          <div class="portfolio-tag">Signs &amp; Printing · Lambert's Bay · <span class="portfolio-status">Demo</span></div>
-          <h3 class="portfolio-name">BoldMark Signs &amp; Print</h3>
-          <p class="portfolio-desc">A bold, print-aesthetic site for a signs and printing company. Custom cursor, Bebas Neue display type, and a CMYK-inspired colour palette that makes a visual statement before a word is read.</p>
+          <div class="portfolio-tag">Retail &amp; Trading · <span class="portfolio-status">Live</span></div>
+          <h3 class="portfolio-name">J&amp;S Trading</h3>
+          <p class="portfolio-desc">A clean, mobile-first storefront for J&amp;S Trading's jewelry boxes, perspex plaques, and clothing lines — organized categories, clear listings, and WhatsApp enquiry built in.</p>
           <div class="portfolio-features">
-            <span class="portfolio-feature">Service Listings</span>
-            <span class="portfolio-feature">Custom Cursor</span>
-            <span class="portfolio-feature">WhatsApp Quote</span>
-            <span class="portfolio-feature">Portfolio Gallery</span>
-            <span class="portfolio-feature">Mobile-First</span>
-          </div>
-          <a href="https://berneleesimon-cpu.github.io/boldmark-signs" target="_blank" class="portfolio-link">View Demo →</a>
-        </div>
-      </div>
-
-      <div class="portfolio-item reveal reveal-d4">
-        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">🪑</span></div>
-        <div class="portfolio-content">
-          <div class="portfolio-tag">Furniture &amp; Home · Lambert's Bay · <span class="portfolio-status">Demo</span></div>
-          <h3 class="portfolio-name">Amara Home</h3>
-          <p class="portfolio-desc">Warm, family-first furniture store for a foreigner building something from nothing on the West Coast. Terra cotta palette, Fraunces serif, and a human story that makes affordable furniture feel aspirational.</p>
-          <div class="portfolio-features">
-            <span class="portfolio-feature">Product Listings</span>
-            <span class="portfolio-feature">Brand Story</span>
-            <span class="portfolio-feature">WhatsApp Orders</span>
-            <span class="portfolio-feature">Warm Aesthetic</span>
-            <span class="portfolio-feature">Mobile-First</span>
-          </div>
-          <a href="https://berneleesimon-cpu.github.io/amara-home" target="_blank" class="portfolio-link">View Demo →</a>
-        </div>
-      </div>
-
-      <div class="portfolio-item reveal reveal-d5">
-        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">🏡</span></div>
-        <div class="portfolio-content">
-          <div class="portfolio-tag">Real Estate · West Coast · <span class="portfolio-status">Demo</span></div>
-          <h3 class="portfolio-name">Westland Property</h3>
-          <p class="portfolio-desc">A premium real estate agency site for holiday homes, vacant land, and coastal living on the West Coast. Playfair Display serif, sage green palette — sophisticated without being cold.</p>
-          <div class="portfolio-features">
-            <span class="portfolio-feature">Property Listings</span>
-            <span class="portfolio-feature">Agent Profiles</span>
+            <span class="portfolio-feature">Product Categories</span>
             <span class="portfolio-feature">WhatsApp Enquiry</span>
-            <span class="portfolio-feature">Premium Design</span>
             <span class="portfolio-feature">Mobile-First</span>
           </div>
-          <a href="https://berneleesimon-cpu.github.io/westland-property" target="_blank" class="portfolio-link">View Demo →</a>
-        </div>
-      </div>
-
-      <div class="portfolio-item reveal reveal-d5">
-        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">⚓</span></div>
-        <div class="portfolio-content">
-          <div class="portfolio-tag">Seafood Restaurant · West Coast · <span class="portfolio-status">Demo</span></div>
-          <h3 class="portfolio-name">The Anchor Table</h3>
-          <p class="portfolio-desc">An upmarket West Coast seafood restaurant site. Deep navy, amber accents, noise texture, and Bebas Neue display — the kind of site that makes a visitor feel the salt air before they've booked a table.</p>
-          <div class="portfolio-features">
-            <span class="portfolio-feature">Full Menu</span>
-            <span class="portfolio-feature">Reservations</span>
-            <span class="portfolio-feature">Brand Story</span>
-            <span class="portfolio-feature">Atmospheric Design</span>
-            <span class="portfolio-feature">Mobile-First</span>
-          </div>
-          <a href="https://berneleesimon-cpu.github.io/anchor-table" target="_blank" class="portfolio-link">View Demo →</a>
+          <a href="https://jsbtrading.netlify.app" target="_blank" class="portfolio-link">View Live Site →</a>
         </div>
       </div>
 
@@ -614,31 +661,17 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
       <div class="credentials-items">
         <div class="credential reveal reveal-d1">
           <div class="credential-line"></div>
-          <div class="credential-text">AI Certification — Elements of AI<span>University of Helsinki · In Progress</span></div>
+          <div class="credential-text">Make.com Automation Platform<span>Workflow Design · Active</span></div>
         </div>
         <div class="credential reveal reveal-d2">
           <div class="credential-line"></div>
-          <div class="credential-text">Make.com Automation Platform<span>Workflow Design · Active</span></div>
-        </div>
-        <div class="credential reveal reveal-d3">
-          <div class="credential-line"></div>
           <div class="credential-text">Self-Taught Web Development<span>HTML · CSS · JavaScript · GitHub Pages</span></div>
         </div>
-        <div class="credential reveal reveal-d4">
+        <div class="credential reveal reveal-d3">
           <div class="credential-line"></div>
           <div class="credential-text">Government Data Monitoring<span>Full-Time Role · South Africa</span></div>
         </div>
       </div>
-    </div>
-    <div class="credentials-badge reveal reveal-d2">
-      <div class="badge-ring">
-        <div class="badge-ring-inner">
-          <span class="badge-ring-label">AI<br>Certified</span>
-          <span class="badge-ring-icon">🎓</span>
-          <span class="badge-ring-label">Helsinki</span>
-        </div>
-      </div>
-      <div class="badge-sub">Elements of AI</div>
     </div>
   </div>
 </section>
@@ -687,11 +720,11 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
         <div class="contact-cta-block">
           <div class="contact-cta-label">Fastest Way to Reach Me</div>
           <div class="contact-cta-text">WhatsApp me and let's talk about your project.</div>
-          <a href="https://wa.me/27660910271" target="_blank" class="contact-btn-wa">
+          <a href="https://wa.me/27738399334" target="_blank" class="contact-btn-wa">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            <span>066 091 0271</span>
+            <span>073 839 9334</span>
           </a>
-          <a href="mailto:berneleesimon@gmail.com" class="contact-email-link">berneleesimon@gmail.com</a>
+          <a href="mailto:percipiodigital@gmail.com" class="contact-email-link">percipiodigital@gmail.com</a>
         </div>
       </div>
     </div>
@@ -703,7 +736,7 @@ footer { background: var(--surface); border-top: 1px solid var(--rule); padding:
   <div class="footer-copy">© 2026 Percipio Digital · Lambert's Bay, South Africa</div>
 </footer>
 
-<a href="https://wa.me/27660910271" target="_blank" class="wa-float" aria-label="WhatsApp">
+<a href="https://wa.me/27738399334" target="_blank" class="wa-float" aria-label="WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
@@ -730,7 +763,7 @@ const navLinks = document.querySelectorAll('.nav-links a');
 window.addEventListener('scroll', () => {
   let current = '';
   sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
-  navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--text)' : ''; });
+  navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--amber)' : ''; });
 }, { passive: true });
 </script>
 </body>
