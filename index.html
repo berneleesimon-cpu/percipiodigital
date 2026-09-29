@@ -3,768 +3,283 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Percipio Digital — Web design and AI automation for small businesses on the West Coast of South Africa. Fast, affordable, built to work for you."/>
-<title>Percipio Digital — We See What Others Overlook</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Oswald:wght@300;400;500;600&family=Libre+Baskerville:ital,wght@0,400;1,400&display=swap" rel="stylesheet"/>
+<title>Percipio Digital | Professional Websites for Small Businesses</title>
+<meta name="description" content="Professional, mobile-friendly websites for small businesses. Based in Lambert's Bay on the West Coast. Websites from R1,500 once-off."/>
+<meta name="theme-color" content="#0a0a0a"/>
+<meta property="og:title" content="Percipio Digital | Professional Websites for Small Businesses"/>
+<meta property="og:description" content="Professional, mobile-friendly websites from R1,500 once-off. Based in Lambert's Bay, West Coast, South Africa."/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Oswald:wght@300;400;500&display=swap" rel="stylesheet"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Percipio Digital","description":"Professional websites for small businesses.","telephone":"+27738399334","email":"percipiodigital@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Lambert's Bay","addressRegion":"Western Cape","addressCountry":"ZA"}}</script>
 <style>
-:root {
-  --black:    #080808;
-  --surface:  #111111;
-  --surface2: #181818;
-  --surface3: #202020;
-  --silver:   #9BA8B0;
-  --frost:    #C8D8E4;
-  --amber:    #C8863A;
-  --amber-dim: rgba(200,134,58,0.15);
-  --text:     #F0EEF0;
-  --text-dim: rgba(240,238,240,0.58);
-  --rule:     rgba(155,168,176,0.1);
-  --rule-mid: rgba(155,168,176,0.2);
-  --muted:    rgba(155,168,176,0.42);
-  --gutter:   clamp(20px, 5vw, 52px);
-  --max:      1060px;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--black);
-  color: var(--text);
-  font-family: 'Libre Baskerville', Georgia, serif;
-  font-size: 16px;
-  line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
-a { color: inherit; text-decoration: none; }
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: 0.032;
-  pointer-events: none;
-  z-index: 1000;
-}
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.8s cubic-bezier(.25,.8,.25,1), transform 0.8s cubic-bezier(.25,.8,.25,1); }
-.reveal.in { opacity: 1; transform: translateY(0); }
-.reveal-d1 { transition-delay: 0.08s; }
-.reveal-d2 { transition-delay: 0.18s; }
-.reveal-d3 { transition-delay: 0.28s; }
-.reveal-d4 { transition-delay: 0.38s; }
-.reveal-d5 { transition-delay: 0.48s; }
-
+:root{--black:#0a0a0a;--char:#141414;--char2:#1c1c1c;--silver:#a9b4bb;--frost:#d4e0ea;--amber:#c8863a;--text:#f0eef0;--dim:rgba(240,238,240,.72);--rule:rgba(169,180,187,.18);--g:clamp(20px,5vw,52px);--max:1040px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{background:var(--black);color:var(--text);font-family:'Oswald',system-ui,sans-serif;font-weight:300;font-size:17px;line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;font-weight:900;line-height:1.12}
+.wrap{max-width:var(--max);margin:0 auto}
+section{padding:clamp(60px,9vw,104px) var(--g)}
+.alt{background:var(--char)}
+h2{font-size:clamp(28px,4.6vw,46px);margin-bottom:22px;text-transform:uppercase;letter-spacing:.5px}
+.lead{max-width:640px;color:var(--dim);font-size:18px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'Oswald',sans-serif;font-weight:500;font-size:14px;letter-spacing:2px;text-transform:uppercase;padding:16px 30px;border:1px solid var(--text);transition:background .2s,color .2s,border-color .2s}
+.btn-wa{background:var(--amber);border-color:var(--amber);color:#0a0a0a}
+.btn-wa:hover{background:var(--frost);border-color:var(--frost)}
+.btn-ghost{color:var(--silver);border-color:var(--rule)}
+.btn-ghost:hover{border-color:var(--silver);color:var(--text)}
+.ico{width:18px;height:18px;fill:currentColor;flex-shrink:0}
 /* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
-  background: rgba(8,8,8,0.93); backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--rule);
-  padding: 0 var(--gutter);
-  display: flex; align-items: center; justify-content: space-between; height: 64px;
-}
-.nav-logo { display: flex; align-items: center; }
-.nav-logo img { height: 38px; width: auto; display: block; }
-.nav-links { display: flex; gap: 36px; list-style: none; }
-.nav-links a { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); transition: color 0.25s; }
-.nav-links a:hover { color: var(--amber); }
-.nav-cta { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; border: 1px solid var(--rule-mid); color: var(--silver); padding: 10px 22px; transition: border-color 0.25s, color 0.25s; }
-.nav-cta:hover { border-color: var(--amber); color: var(--amber); }
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-.hamburger span { display: block; width: 22px; height: 1px; background: var(--silver); }
-.mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--surface); border-bottom: 1px solid var(--rule-mid); padding: 28px var(--gutter); z-index: 890; flex-direction: column; gap: 22px; }
-.mobile-menu.open { display: flex; }
-.mobile-menu a { font-family: 'Oswald', sans-serif; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--silver); border-bottom: 1px solid var(--rule); padding-bottom: 18px; }
-.mobile-menu a:last-child { border-bottom: none; padding-bottom: 0; }
-
+header{position:fixed;top:0;left:0;right:0;z-index:50;height:64px;padding:0 var(--g);display:flex;align-items:center;justify-content:space-between;gap:16px;background:rgba(10,10,10,.96);border-bottom:1px solid var(--rule)}
+.logo img{height:36px;width:auto;display:block}
+nav ul{display:flex;gap:30px;list-style:none}
+nav a{font-size:13px;letter-spacing:2.5px;text-transform:uppercase;color:var(--silver);transition:color .2s}
+nav a:hover,nav a.on{color:var(--amber)}
+.nav-wa{padding:10px 18px;font-size:13px;background:var(--amber);border-color:var(--amber);color:#0a0a0a}
+.burger{display:none;background:none;border:1px solid var(--rule);color:var(--silver);width:44px;height:44px;cursor:pointer;font-size:20px;line-height:1}
+.mmenu{display:none;position:fixed;top:64px;left:0;right:0;z-index:49;background:var(--char);border-bottom:1px solid var(--rule);padding:12px var(--g) 20px;flex-direction:column}
+.mmenu.open{display:flex}
+.mmenu a{font-size:15px;letter-spacing:2.5px;text-transform:uppercase;color:var(--silver);padding:16px 0;border-bottom:1px solid var(--rule)}
+.hright{display:flex;align-items:center;gap:10px}
 /* HERO */
-#hero {
-  min-height: 100svh; display: flex; flex-direction: column;
-  align-items: flex-start; justify-content: flex-end;
-  padding: 120px var(--gutter) 88px;
-  position: relative; overflow: hidden;
-}
-.hero-bg {
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 55% 50% at 75% 25%, rgba(200,134,58,0.05) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(200,134,58,0.03) 0%, transparent 60%),
-    linear-gradient(170deg, #080808 0%, #0e0e0e 50%, #111111 100%);
-  z-index: -1;
-}
-.hero-bg::after {
-  content: ''; position: absolute; inset: 0;
-  background-image: repeating-linear-gradient(-45deg, transparent, transparent 80px, rgba(155,168,176,0.018) 80px, rgba(155,168,176,0.018) 81px);
-}
-
-/* SPINNING FLOATING LOGO */
-.hero-logo-wrap {
-  position: absolute;
-  top: 50%;
-  right: clamp(60px, 12vw, 180px);
-  pointer-events: none;
-  z-index: 0;
-  animation: heroFloat 5s ease-in-out infinite;
-}
-.hero-logo-wrap img {
-  width: clamp(120px, 18vw, 240px);
-  height: auto;
-  display: block;
-  animation: heroSpin 18s linear infinite;
-  filter: drop-shadow(0 0 36px rgba(200,134,58,0.5)) drop-shadow(0 0 72px rgba(200,134,58,0.25));
-  opacity: 0.92;
-}
-@keyframes heroFloat {
-  0%, 100% { transform: translateY(-50%); }
-  50%       { transform: translateY(calc(-50% - 22px)); }
-}
-@keyframes heroSpin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
-.hero-eyebrow { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; opacity: 0; animation: fadeUp 0.9s 0.2s forwards; position: relative; z-index: 1; }
-.hero-headline { font-family: 'Playfair Display', serif; font-weight: 900; font-size: clamp(42px, 9vw, 100px); line-height: 1.0; color: var(--text); max-width: 860px; margin-bottom: 32px; opacity: 0; animation: fadeUp 1s 0.4s forwards; position: relative; z-index: 1; }
-.hero-headline em { font-style: italic; color: var(--silver); }
-.hero-sub { font-family: 'Oswald', sans-serif; font-size: clamp(13px, 1.8vw, 15px); font-weight: 300; color: var(--text-dim); letter-spacing: 1px; max-width: 480px; margin-bottom: 52px; line-height: 1.85; opacity: 0; animation: fadeUp 1s 0.6s forwards; position: relative; z-index: 1; }
-.hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; opacity: 0; animation: fadeUp 1s 0.8s forwards; position: relative; z-index: 1; }
-.btn-primary { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; background: var(--text); color: var(--black); padding: 16px 36px; border: 1px solid var(--text); cursor: pointer; transition: background 0.25s, color 0.25s, transform 0.2s; display: inline-flex; align-items: center; gap: 12px; }
-.btn-primary:hover { background: var(--frost); border-color: var(--frost); transform: translateY(-2px); }
-.btn-secondary { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; background: transparent; color: var(--silver); padding: 16px 36px; border: 1px solid var(--rule-mid); cursor: pointer; transition: border-color 0.25s, color 0.25s, transform 0.2s; display: inline-flex; align-items: center; gap: 12px; }
-.btn-secondary:hover { border-color: var(--silver); color: var(--text); transform: translateY(-2px); }
-.hero-rule { position: absolute; bottom: 0; left: var(--gutter); right: var(--gutter); height: 1px; background: var(--rule); }
-.hero-location { position: absolute; right: var(--gutter); bottom: 88px; font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); writing-mode: vertical-rl; opacity: 0; animation: fadeUp 1s 1.1s forwards; }
-@keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
-
-/* SECTIONS */
-section { padding: clamp(72px, 11vw, 128px) var(--gutter); }
-.container { max-width: var(--max); margin: 0 auto; }
-.section-eyebrow { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: var(--muted); margin-bottom: 18px; display: block; }
-.section-title { font-family: 'Playfair Display', serif; font-size: clamp(30px, 5vw, 54px); font-weight: 900; line-height: 1.1; color: var(--text); margin-bottom: 52px; }
-.section-title em { font-style: italic; color: var(--silver); }
-
-/* ABOUT */
-#about { background: var(--surface); }
-.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
-.about-pull { font-family: 'Playfair Display', serif; font-size: clamp(17px, 2.6vw, 24px); font-style: italic; color: var(--silver); line-height: 1.55; border-left: 2px solid var(--amber); padding-left: 28px; margin-bottom: 40px; }
-.about-body p { font-size: 15px; line-height: 1.9; color: var(--text-dim); margin-bottom: 22px; }
-.about-body p:last-child { margin-bottom: 0; }
-.about-body strong { color: var(--text); font-style: normal; }
-.about-stat-block { border-top: 1px solid var(--rule); padding-top: 44px; margin-top: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
-.about-stat-num { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 900; color: var(--amber); line-height: 1; margin-bottom: 8px; }
-.about-stat-label { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); }
-
-/* SERVICES */
-#services { background: var(--black); }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1px; background: var(--rule); }
-.service-card { background: var(--black); padding: 40px 36px; position: relative; overflow: hidden; transition: background 0.3s; }
-.service-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--amber); transform: scaleX(0); transform-origin: left; transition: transform 0.4s cubic-bezier(.25,.8,.25,1); }
-.service-card:hover { background: var(--surface); }
-.service-card:hover::after { transform: scaleX(1); }
-.service-card.featured { background: var(--surface2); }
-.service-card.featured::after { transform: scaleX(1); }
-.service-num { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; color: var(--muted); text-transform: uppercase; margin-bottom: 14px; }
-.service-name { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--text); margin-bottom: 14px; line-height: 1.25; }
-.service-desc { font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 300; color: var(--text-dim); line-height: 1.75; margin-bottom: 24px; }
-.service-price { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 2.5px; color: var(--silver); text-transform: uppercase; border-top: 1px solid var(--rule); padding-top: 18px; }
-.service-badge { display: inline-block; font-family: 'Oswald', sans-serif; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid rgba(200,134,58,0.3); color: var(--amber); padding: 3px 8px; margin-bottom: 18px; }
-
+#home{padding-top:clamp(120px,16vw,170px);padding-bottom:clamp(64px,10vw,110px);background:linear-gradient(180deg,#0a0a0a,#121212)}
+.tag{font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--silver);margin-bottom:22px}
+h1{font-size:clamp(36px,7.4vw,78px);text-transform:uppercase;max-width:900px;margin-bottom:26px;letter-spacing:.5px}
+#home .lead{margin-bottom:26px}
+.price-line{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(22px,3.4vw,30px);color:var(--amber);margin-bottom:34px}
+.ctas{display:flex;flex-wrap:wrap;gap:14px}
+.brand{margin-top:44px;font-family:'Playfair Display',serif;font-style:italic;color:var(--silver);font-size:18px}
+/* PROBLEM */
+.list{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0 40px;list-style:none}
+.list li{padding:14px 0 14px 22px;border-top:1px solid var(--rule);position:relative}
+.list li::before{content:'';position:absolute;left:0;top:26px;width:8px;height:1px;background:var(--amber)}
+/* CARDS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:34px 0}
+.card{background:var(--black);padding:30px 26px}
+.alt .card{background:var(--char)}
+.card h3{font-size:20px;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px}
+.card p{color:var(--dim);font-size:16px}
+.pricebox{border:1px solid var(--amber);padding:clamp(26px,4vw,40px);text-align:center;max-width:640px;margin:0 auto}
+.pricebox strong{display:block;font-family:'Playfair Display',serif;font-size:clamp(26px,4.4vw,40px);color:var(--amber);text-transform:uppercase}
+.pricebox span{color:var(--dim)}
+/* STEPS */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:34px;margin-top:34px}
+.step b{display:block;font-family:'Playfair Display',serif;font-size:38px;color:var(--amber);line-height:1;margin-bottom:12px}
+.step h3{font-size:19px;margin-bottom:10px;text-transform:uppercase}
+.step p{color:var(--dim);font-size:16px}
+/* CONCEPT */
+.chip{display:inline-block;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--amber);border:1px solid rgba(200,134,58,.45);padding:2px 9px;margin-bottom:14px}
+.center{text-align:center;margin-top:8px}
 /* PRICING */
-#pricing { background: var(--surface); }
-.pricing-groups { display: flex; flex-direction: column; gap: 1px; background: var(--rule); }
-.pricing-group { background: var(--black); padding: 36px 40px; }
-.pricing-group-label { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-bottom: 22px; }
-.pricing-row { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; padding: 14px 0; border-top: 1px solid var(--rule); }
-.pricing-row:first-of-type { border-top: none; }
-.pricing-row-left { flex: 1; }
-.pricing-name { font-family: 'Playfair Display', serif; font-size: 16px; color: var(--text); margin-bottom: 4px; }
-.pricing-desc { font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 300; color: var(--text-dim); line-height: 1.6; }
-.pricing-price { font-family: 'Oswald', sans-serif; font-size: 12px; letter-spacing: 1px; color: var(--amber); font-weight: 500; white-space: nowrap; flex-shrink: 0; }
-.pricing-note { font-family: 'Oswald', sans-serif; font-size: 11px; font-weight: 300; font-style: italic; color: var(--muted); margin-top: 16px; line-height: 1.7; }
-
-/* PORTFOLIO */
-#portfolio { background: var(--surface); }
-.portfolio-items { display: flex; flex-direction: column; gap: 1px; background: var(--rule); }
-.portfolio-item { display: grid; grid-template-columns: 1fr 2fr; background: var(--black); transition: background 0.3s; }
-.portfolio-item:hover { background: var(--surface2); }
-.portfolio-thumb { background: var(--surface2); display: flex; align-items: center; justify-content: center; min-height: 220px; padding: 40px; position: relative; overflow: hidden; }
-.portfolio-thumb::before { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(-45deg, transparent, transparent 24px, rgba(155,168,176,0.025) 24px, rgba(155,168,176,0.025) 25px); }
-.portfolio-thumb-icon { font-size: 52px; z-index: 1; }
-.portfolio-content { padding: 36px 44px; display: flex; flex-direction: column; justify-content: center; border-left: 1px solid var(--amber); }
-.portfolio-tag { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
-.portfolio-status { color: var(--amber); }
-.portfolio-name { font-family: 'Playfair Display', serif; font-size: clamp(18px, 3vw, 26px); color: var(--text); margin-bottom: 14px; line-height: 1.2; }
-.portfolio-desc { font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 300; color: var(--text-dim); line-height: 1.8; margin-bottom: 20px; }
-.portfolio-features { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
-.portfolio-feature { font-family: 'Oswald', sans-serif; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; border: 1px solid var(--rule); color: var(--muted); padding: 4px 10px; }
-.portfolio-link { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--amber); display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.2s; width: fit-content; }
-.portfolio-link:hover { opacity: 0.7; }
-
-/* PROCESS */
-#process { background: var(--black); }
-.process-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
-.process-steps::before { content: ''; position: absolute; top: 31px; left: calc(16.67% + 16px); right: calc(16.67% + 16px); height: 1px; background: var(--rule-mid); }
-.process-step { padding: 0 36px 40px; text-align: center; }
-.process-step:first-child { padding-left: 0; }
-.process-step:last-child { padding-right: 0; }
-.process-num { width: 62px; height: 62px; border: 1px solid var(--amber); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; color: var(--amber); margin: 0 auto 32px; background: var(--black); position: relative; z-index: 1; }
-.process-step-title { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--text); margin-bottom: 16px; }
-.process-step-desc { font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 300; color: var(--text-dim); line-height: 1.8; }
-
-/* CREDENTIALS */
-#credentials { background: var(--surface); padding: clamp(52px, 8vw, 88px) var(--gutter); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
-.credentials-inner { max-width: var(--max); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
-.credentials-label { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 5px; text-transform: uppercase; color: var(--muted); margin-bottom: 28px; }
-.credentials-items { display: flex; flex-direction: column; gap: 16px; }
-.credential { display: flex; align-items: flex-start; gap: 16px; }
-.credential-line { width: 1px; height: 36px; background: var(--amber); flex-shrink: 0; margin-top: 4px; opacity: 0.6; }
-.credential-text { font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 400; color: var(--text); letter-spacing: 0.3px; }
-.credential-text span { font-size: 10px; color: var(--muted); display: block; letter-spacing: 1.5px; margin-top: 3px; text-transform: uppercase; }
-.credentials-badge { text-align: center; flex-shrink: 0; }
-.badge-ring { width: 116px; height: 116px; border: 1px solid rgba(200,134,58,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 14px; position: relative; }
-.badge-ring::before { content: ''; position: absolute; inset: 8px; border: 1px solid var(--rule); border-radius: 50%; }
-.badge-ring-inner { text-align: center; z-index: 1; }
-.badge-ring-label { font-family: 'Oswald', sans-serif; font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--amber); display: block; line-height: 1.4; }
-.badge-ring-icon { font-size: 20px; display: block; margin: 5px 0; }
-.badge-sub { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
-
-/* AI DEMOS */
-#ai-demos { background: var(--surface2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); position: relative; overflow: hidden; }
-#ai-demos::before { content: ''; position: absolute; top: -200px; right: -200px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(200,134,58,0.04) 0%, transparent 70%); pointer-events: none; }
-.ai-demos-inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.ai-demos-left .section-eyebrow { margin-bottom: 18px; }
-.ai-demos-headline { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 900; line-height: 1.1; color: var(--text); margin-bottom: 22px; }
-.ai-demos-headline em { font-style: italic; color: var(--amber); }
-.ai-demos-desc { font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 300; color: var(--text-dim); line-height: 1.85; letter-spacing: 0.5px; margin-bottom: 36px; max-width: 400px; }
-.ai-demos-btn { font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3.5px; text-transform: uppercase; background: var(--amber); color: var(--black); padding: 16px 36px; border: 1px solid var(--amber); display: inline-flex; align-items: center; gap: 12px; transition: background 0.25s, color 0.25s, transform 0.2s; }
-.ai-demos-btn:hover { background: transparent; color: var(--amber); transform: translateY(-2px); }
-.ai-demos-right { display: flex; flex-direction: column; gap: 1px; background: var(--rule); }
-.ai-demo-card { background: var(--surface); padding: 28px 32px; display: flex; align-items: flex-start; gap: 20px; transition: background 0.25s; }
-.ai-demo-card:hover { background: var(--black); }
-.ai-demo-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--amber-dim); line-height: 1; flex-shrink: 0; padding-top: 4px; }
-.ai-demo-name { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--text); margin-bottom: 7px; }
-.ai-demo-desc { font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 300; color: var(--text-dim); line-height: 1.75; letter-spacing: 0.3px; }
-
-/* CONTACT */
-#contact { background: var(--black); position: relative; overflow: hidden; }
-#contact::before { content: ''; position: absolute; top: -300px; right: -300px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(200,134,58,0.04) 0%, transparent 70%); pointer-events: none; }
-.contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 88px; align-items: center; }
-.contact-headline { font-family: 'Playfair Display', serif; font-size: clamp(32px, 5vw, 56px); font-weight: 900; color: var(--text); line-height: 1.1; margin-bottom: 22px; }
-.contact-headline em { font-style: italic; color: var(--silver); }
-.contact-tagline { font-family: 'Oswald', sans-serif; font-size: 13px; font-weight: 300; color: var(--text-dim); letter-spacing: 0.8px; line-height: 1.85; margin-bottom: 40px; max-width: 380px; }
-.contact-location { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 28px; }
-.contact-location strong { color: var(--amber); }
-.contact-right { display: flex; flex-direction: column; gap: 1px; background: var(--rule); }
-.contact-cta-block { background: var(--surface); padding: 32px 36px; display: flex; flex-direction: column; gap: 18px; }
-.contact-cta-label { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--muted); }
-.contact-cta-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 17px; color: var(--text); line-height: 1.5; }
-.contact-btn-wa { display: flex; align-items: center; gap: 12px; background: #25D366; color: #fff; font-family: 'Oswald', sans-serif; font-size: 10px; letter-spacing: 3px; text-transform: uppercase; padding: 15px 26px; transition: background 0.25s, transform 0.2s; width: fit-content; }
-.contact-btn-wa:hover { background: #1fb958; transform: translateY(-2px); }
-.contact-btn-wa svg { width: 16px; height: 16px; fill: #fff; flex-shrink: 0; }
-.contact-email-link { display: flex; align-items: center; gap: 10px; font-family: 'Oswald', sans-serif; font-size: 12px; font-weight: 300; letter-spacing: 1.5px; color: var(--muted); transition: color 0.25s; }
-.contact-email-link:hover { color: var(--text); }
-
-/* FOOTER */
-footer { background: var(--surface); border-top: 1px solid var(--rule); padding: 36px var(--gutter); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
-.footer-brand { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 900; color: var(--text); }
-.footer-brand span { color: var(--amber); }
-.footer-copy { font-family: 'Oswald', sans-serif; font-size: 9px; letter-spacing: 2.5px; color: var(--muted); text-transform: uppercase; }
-
-/* FLOATING WA */
-.wa-float { position: fixed; bottom: 28px; right: 28px; width: 54px; height: 54px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 24px rgba(37,211,102,0.3); z-index: 800; transition: transform 0.2s, box-shadow 0.2s; }
-.wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 32px rgba(37,211,102,0.45); }
-.wa-float svg { width: 24px; height: 24px; fill: #fff; }
-
-/* RESPONSIVE */
-@media (max-width: 860px) {
-  .nav-links, .nav-cta { display: none; }
-  .hamburger { display: flex; }
-  .about-grid { grid-template-columns: 1fr; gap: 48px; }
-  .portfolio-item { grid-template-columns: 1fr; }
-  .portfolio-thumb { min-height: 160px; }
-  .portfolio-content { padding: 28px 28px; border-left: none; border-top: 1px solid var(--amber); }
-  .process-steps { grid-template-columns: 1fr; }
-  .process-steps::before { display: none; }
-  .process-step { text-align: left; padding: 28px 0; border-bottom: 1px solid var(--rule); display: flex; gap: 24px; align-items: flex-start; }
-  .process-step:last-child { border-bottom: none; }
-  .process-num { flex-shrink: 0; margin: 0; }
-  .credentials-inner { flex-direction: column; }
-  .contact-inner { grid-template-columns: 1fr; gap: 52px; }
-  .hero-location { display: none; }
-  .ai-demos-inner { grid-template-columns: 1fr; gap: 48px; }
-  .ai-demos-desc { max-width: 100%; }
-  .hero-logo-wrap {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 64px;
-    left: 0;
-    right: 0;
-    height: 56vh;
-    padding-top: 80px;
-    animation: heroFloat 5s ease-in-out infinite;
-  }
-  .hero-logo-wrap img {
-    width: 220px;
-    height: 220px;
-    object-fit: contain;
-    animation: heroSpin 18s linear infinite;
-    filter: drop-shadow(0 0 40px rgba(200,134,58,0.7)) drop-shadow(0 0 80px rgba(200,134,58,0.35));
-    opacity: 1;
-  }
+.incl{list-style:none;margin:24px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0 36px}
+.incl li{padding:12px 0 12px 26px;border-top:1px solid var(--rule);position:relative;color:var(--text)}
+.incl li::before{content:'';position:absolute;left:2px;top:19px;width:7px;height:12px;border:solid var(--amber);border-width:0 2px 2px 0;transform:rotate(45deg) scale(.7);transform-origin:center}
+.big{font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(40px,7vw,64px);color:var(--amber);line-height:1}
+.note{color:var(--dim);font-size:16px;margin-top:8px}
+.small{margin-top:26px;color:var(--dim)}
+.link{color:var(--amber);border-bottom:1px solid rgba(200,134,58,.4)}
+/* ABOUT */
+.about p{max-width:680px;margin-bottom:20px;color:var(--dim);font-size:18px}
+.about p:first-of-type{color:var(--text)}
+/* LOCATION */
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
+.map{position:relative;aspect-ratio:4/3;border:1px solid var(--rule);background:var(--char2);overflow:hidden}
+.map svg,.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.map button{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);font-family:'Oswald',sans-serif;font-size:13px;letter-spacing:2px;text-transform:uppercase;background:var(--black);color:var(--silver);border:1px solid var(--rule);padding:11px 18px;cursor:pointer}
+.map button:hover{border-color:var(--amber);color:var(--amber)}
+/* FINAL */
+#contact{text-align:center;background:var(--char)}
+#contact h2{max-width:760px;margin:0 auto 16px}
+#contact .lead{margin:0 auto 30px}
+.phone{margin-top:18px;font-size:22px;letter-spacing:1px}
+.mail{display:inline-block;margin-top:6px;color:var(--silver);font-size:16px}
+footer{padding:30px var(--g);border-top:1px solid var(--rule);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;font-size:14px;color:var(--silver)}
+footer img{height:30px;display:block}
+.bar{display:none}
+@media(max-width:860px){
+nav{display:none}.burger{display:block}.nav-wa{padding:10px 14px}
+.loc{grid-template-columns:1fr}
+body{padding-bottom:68px}
+.bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px var(--g);background:rgba(10,10,10,.97);border-top:1px solid var(--rule)}
+.bar .btn{width:100%}
 }
-@media (max-width: 560px) {
-  .services-grid { grid-template-columns: 1fr; }
-  .about-stat-block { grid-template-columns: 1fr 1fr; }
-  .hero-ctas { flex-direction: column; }
-  .btn-primary, .btn-secondary { justify-content: center; }
-  footer { flex-direction: column; text-align: center; }
-  .pricing-row { flex-direction: column; gap: 4px; }
-  .pricing-group { padding: 32px 24px; }
-}
+@media(max-width:420px){.logo img{height:30px}.nav-wa span{display:none}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wa" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.79a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26C2.17 6.44 6.6 2 12.06 2c2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.89-9.89 9.89M20.46 3.49A11.8 11.8 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.9 11.9 0 0 0 5.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.49-8.42"/></symbol></svg>
 
-<nav>
-  <a href="#hero" class="nav-logo">
-    <img src="percipio-digital-logo.svg" alt="Percipio Digital" />
-  </a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="demos.html">AI Demos</a></li>
-  </ul>
-  <a href="https://wa.me/27738399334" target="_blank" class="nav-cta">Let's Talk</a>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+<header>
+  <a href="#home" class="logo"><img src="percipio-digital-logo.svg" alt="Percipio Digital"/></a>
+  <nav aria-label="Main"><ul>
+    <li><a href="#home">Home</a></li><li><a href="#how">How It Works</a></li><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#contact">Contact</a></li>
+  </ul></nav>
+  <div class="hright">
+    <a class="btn nav-wa" href="https://wa.me/27738399334?text=Hi%20Percipio%2C%20I%27d%20like%20a%20website%20for%20my%20business." target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg><span>WhatsApp Us</span></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu">&#9776;</button>
   </div>
-</nav>
-
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="toggleMenu()">About</a>
-  <a href="#services" onclick="toggleMenu()">Services</a>
-  <a href="#pricing" onclick="toggleMenu()">Pricing</a>
-  <a href="#portfolio" onclick="toggleMenu()">Portfolio</a>
-  <a href="#process" onclick="toggleMenu()">Process</a>
-  <a href="demos.html" onclick="toggleMenu()">AI Demos →</a>
-  <a href="https://wa.me/27738399334" target="_blank" onclick="toggleMenu()">WhatsApp Us →</a>
+</header>
+<div class="mmenu" id="mmenu">
+  <a href="#home">Home</a><a href="#how">How It Works</a><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a>
 </div>
 
-<section id="hero">
-  <div class="hero-bg"></div>
-
-  <!-- SPINNING FLOATING LOGO — upload your fire P image as logo-hero.png -->
-  <div class="hero-logo-wrap">
-    <img src="logo-hero.png" alt="" />
+<main>
+<section id="home">
+  <div class="wrap">
+    <p class="tag">Web design for small businesses &middot; Lambert's Bay</p>
+    <h1>Your business deserves to be seen online.</h1>
+    <p class="lead">Custom, mobile-friendly websites designed to help your business look professional and make it easier for customers to contact you.</p>
+    <p class="price-line">From R1,500 once-off.</p>
+    <div class="ctas">
+      <a class="btn btn-wa" href="https://wa.me/27738399334?text=Hi%20Percipio%2C%20I%27d%20like%20a%20website%20for%20my%20business." target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>WhatsApp Us</a>
+      <a class="btn btn-ghost" href="#how">See How It Works</a>
+    </div>
+    <p class="brand">We see what others overlook.</p>
   </div>
-
-  <span class="hero-eyebrow">Web Design &amp; AI Automation · Lambert's Bay, South Africa</span>
-  <h1 class="hero-headline">We see what<br><em>others overlook.</em></h1>
-  <p class="hero-sub">Websites and AI-powered tools built for real businesses on the West Coast — fast, affordable, and built to actually work for you.</p>
-  <div class="hero-ctas">
-    <a href="#portfolio" class="btn-primary">
-      See My Work
-      <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7H13M7 1L13 7L7 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
-    <a href="https://wa.me/27738399334" target="_blank" class="btn-secondary">
-      Let's Build Something
-      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </a>
-  </div>
-  <div class="hero-rule"></div>
-  <span class="hero-location">Lambert's Bay · West Coast · South Africa</span>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-left">
-        <span class="section-eyebrow reveal">Who I Am</span>
-        <h2 class="section-title reveal reveal-d1">Built on <em>discipline.</em></h2>
-        <div class="about-pull reveal reveal-d2">"I don't do average work."</div>
-        <div class="about-body reveal reveal-d3">
-          <p>I'm Bernelee Simon. Self-taught. Based in Lambert's Bay. I build websites and AI tools for small businesses that deserve to be taken seriously online.</p>
-          <p>I didn't come from an agency. I came from curiosity, discipline, and the decision to figure things out — no matter what. That's exactly what I bring to every build.</p>
-          <p>AI isn't a shortcut for me. It's a precision tool. It lets me deliver faster, charge less, and build things that actually work for the people who need them.</p>
-          <p><strong>Everything I do is deliberate. Nothing is by accident.</strong></p>
-        </div>
-        <div class="about-stat-block reveal reveal-d4">
-          <div>
-            <div class="about-stat-num">AI</div>
-            <div class="about-stat-label">Powered Builds</div>
-          </div>
-          <div>
-            <div class="about-stat-num">R250</div>
-            <div class="about-stat-label">Maintenance From</div>
-          </div>
-        </div>
-      </div>
-      <div class="about-right reveal reveal-d2">
-        <div style="border: 1px solid var(--rule); padding: 40px 36px; background: var(--surface2);">
-          <div class="section-eyebrow" style="margin-bottom:24px;">The approach</div>
-          <div style="display:flex; flex-direction:column; gap:28px;">
-            <div style="display:flex; gap:18px; align-items:flex-start;">
-              <div style="color:var(--amber); font-family:'Playfair Display',serif; font-size:22px; font-weight:900; flex-shrink:0; margin-top:2px;">01</div>
-              <div>
-                <div style="font-family:'Playfair Display',serif; font-size:16px; color:var(--text); margin-bottom:6px;">Self-taught. Self-driven.</div>
-                <div style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:300; color:var(--text-dim); line-height:1.75;">No shortcuts. No template thinking. Every build is researched, considered, and intentional.</div>
-              </div>
-            </div>
-            <div style="display:flex; gap:18px; align-items:flex-start;">
-              <div style="color:var(--amber); font-family:'Playfair Display',serif; font-size:22px; font-weight:900; flex-shrink:0; margin-top:2px;">02</div>
-              <div>
-                <div style="font-family:'Playfair Display',serif; font-size:16px; color:var(--text); margin-bottom:6px;">AI as a precision tool.</div>
-                <div style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:300; color:var(--text-dim); line-height:1.75;">Not a gimmick. AI is embedded in every build to make your site smarter and your time worth more.</div>
-              </div>
-            </div>
-            <div style="display:flex; gap:18px; align-items:flex-start;">
-              <div style="color:var(--amber); font-family:'Playfair Display',serif; font-size:22px; font-weight:900; flex-shrink:0; margin-top:2px;">03</div>
-              <div>
-                <div style="font-family:'Playfair Display',serif; font-size:16px; color:var(--text); margin-bottom:6px;">Local. Honest. Reliable.</div>
-                <div style="font-family:'Oswald',sans-serif; font-size:12px; font-weight:300; color:var(--text-dim); line-height:1.75;">I know this coastline and its people. You'll always know exactly what you're getting.</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+<section class="alt" id="problem">
+  <div class="wrap">
+    <h2>Your customers are already online.</h2>
+    <p class="lead">People search for businesses on Google, Facebook and WhatsApp. Your business should have somewhere professional to send them. A website gives customers one place to:</p>
+    <ul class="list">
+      <li>See what you offer</li><li>Learn about your business</li><li>View your information and photos</li><li>Understand what you do</li><li>Contact you easily</li>
+    </ul>
+  </div>
+</section>
+
+<section id="get">
+  <div class="wrap">
+    <h2>What you get</h2>
+    <div class="grid">
+      <div class="card"><h3>Professional design</h3><p>Built around your business, not a generic template.</p></div>
+      <div class="card"><h3>Mobile first</h3><p>Works properly on phones, tablets and computers.</p></div>
+      <div class="card"><h3>WhatsApp ready</h3><p>Make it easy for customers to contact you.</p></div>
+      <div class="card"><h3>Fast &amp; simple</h3><p>No unnecessary complexity. Just a website that works.</p></div>
+    </div>
+    <div class="pricebox"><strong>From R1,500 once-off</strong><span>No monthly website contract.</span></div>
+  </div>
+</section>
+
+<section class="alt" id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="step"><b>01</b><h3>Tell us about your business</h3><p>We learn what you do, who you serve and what your website needs to achieve.</p></div>
+      <div class="step"><b>02</b><h3>We build it</h3><p>We design and build a professional website around your business.</p></div>
+      <div class="step"><b>03</b><h3>Go live</h3><p>Once everything is ready, your business has a professional place online that customers can visit and contact.</p></div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="container">
-    <span class="section-eyebrow reveal">What I Offer</span>
-    <h2 class="section-title reveal reveal-d1">Services built for<br><em>real businesses.</em></h2>
-    <div class="services-grid">
-      <div class="service-card reveal reveal-d1">
-        <div class="service-num">01 — Web Design</div>
-        <h3 class="service-name">Website Design &amp; Development</h3>
-        <p class="service-desc">Mobile-first, professional websites built for small businesses. Fast to launch, easy to share, and designed to turn visitors into customers. No bloated platforms. Just clean, working code.</p>
-        <div class="service-price">From R1,500 · Once-Off</div>
-      </div>
-      <div class="service-card featured reveal reveal-d2">
-        <div class="service-badge">Most Requested</div>
-        <div class="service-num">02 — AI Automation</div>
-        <h3 class="service-name">AI-Powered Tools</h3>
-        <p class="service-desc">Lead qualification bots, content generators, and automated customer replies — built directly into your site. Save hours every week without hiring anyone new.</p>
-        <div class="service-price">Custom Quote</div>
-      </div>
-      <div class="service-card reveal reveal-d3">
-        <div class="service-num">03 — Maintenance</div>
-        <h3 class="service-name">Monthly Maintenance</h3>
-        <p class="service-desc">Keep your site updated, running, and working for you every month. Updates, fixes, and small changes handled without the back-and-forth.</p>
-        <div class="service-price">From R250 p.m</div>
-      </div>
+<section id="concept">
+  <div class="wrap">
+    <h2>What could your business look like online?</h2>
+    <p class="lead">Every business is different. We build the website around your business, your customers and what you actually need.</p>
+    <div class="grid">
+      <div class="card"><span class="chip">Concept</span><h3>Accommodation</h3><p>Show your rooms, rates and photos. Guests WhatsApp you to book.</p></div>
+      <div class="card"><span class="chip">Concept</span><h3>Restaurant</h3><p>Your menu, opening hours and location, ready on any phone.</p></div>
+      <div class="card"><span class="chip">Concept</span><h3>Retail</h3><p>Show your products clearly and let customers enquire in one tap.</p></div>
+      <div class="card"><span class="chip">Concept</span><h3>Construction &amp; trades</h3><p>Show your services and past work so customers can trust you.</p></div>
+      <div class="card"><span class="chip">Concept</span><h3>Beauty</h3><p>Your services, prices and booking details in one tidy place.</p></div>
+      <div class="card"><span class="chip">Concept</span><h3>Professional services</h3><p>Explain what you do and make it simple to get in touch.</p></div>
+    </div>
+    <div class="center"><a class="btn btn-wa" href="https://wa.me/27738399334?text=Hi%20Percipio%2C%20I%27d%20like%20a%20free%20preview%20for%20my%20business.%20My%20business%20is%3A%20" target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>Request a Free Preview</a></div>
+  </div>
+</section>
+
+<section class="alt" id="services">
+  <div class="wrap">
+    <h2>Professional website</h2>
+    <p class="big">R1,500</p>
+    <p class="note">Once-off. No monthly website contract.</p>
+    <ul class="incl">
+      <li>Custom design</li><li>Mobile-friendly layout</li><li>Fast loading</li><li>WhatsApp integration</li><li>Contact / enquiry functionality</li><li>Business information and photos</li><li>Domain and hosting included for the first year</li>
+    </ul>
+    <p class="note">Hosting is the always-on computer that stores your website so customers can visit it any time. After the first year, we'll quote you for renewal. No surprises.</p>
+    <p class="small">Need something more advanced? <a class="link" href="https://wa.me/27738399334?text=Hi%20Percipio%2C%20I%20need%20something%20more%20advanced." target="_blank" rel="noopener">Let's talk.</a></p>
+
+    <div style="margin-top:72px">
+      <h2>And when your business is ready...</h2>
+      <p class="lead">We can add AI and automation to help your business handle repetitive work and enquiries more efficiently. Start with a website. Add automation when it makes sense.</p>
+      <ul class="list">
+        <li>AI customer assistants</li><li>Automated enquiries</li><li>Lead qualification</li><li>Content generation</li><li>Business workflows</li>
+      </ul>
+      <p class="small"><a class="link" href="demos.html">See the AI tools in action</a></p>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
-<section id="pricing">
-  <div class="container">
-    <span class="section-eyebrow reveal">The Full Price List</span>
-    <h2 class="section-title reveal reveal-d1">Straightforward<br><em>pricing.</em></h2>
-    <div class="pricing-groups">
-
-      <div class="pricing-group reveal reveal-d1">
-        <div class="pricing-group-label">Website Design · Once-Off</div>
-        <div class="pricing-row">
-          <div class="pricing-row-left">
-            <div class="pricing-name">Starter</div>
-            <div class="pricing-desc">Single page, WhatsApp integration, mobile-first build.</div>
-          </div>
-          <div class="pricing-price">R1,500</div>
-        </div>
-        <div class="pricing-row">
-          <div class="pricing-row-left">
-            <div class="pricing-name">Premium</div>
-            <div class="pricing-desc">Multi-section site, gallery / product listings, WhatsApp ordering.</div>
-          </div>
-          <div class="pricing-price">R3,000</div>
-        </div>
-        <div class="pricing-row">
-          <div class="pricing-row-left">
-            <div class="pricing-name">Exclusive</div>
-            <div class="pricing-desc">Custom builds, AI tool integration, extra revision rounds.</div>
-          </div>
-          <div class="pricing-price">R5,000+</div>
-        </div>
-      </div>
-
-      <div class="pricing-group reveal reveal-d2">
-        <div class="pricing-group-label">AI-Powered Add-Ons</div>
-        <div class="pricing-row">
-          <div class="pricing-row-left">
-            <div class="pricing-name">Lead Qualifier Bot</div>
-            <div class="pricing-desc">Scores incoming leads and drafts your reply automatically.</div>
-          </div>
-          <div class="pricing-price">Custom Quote</div>
-        </div>
-        <div class="pricing-row">
-          <div class="pricing-row-left">
-            <div class="pricing-name">Content Generator</div>
-            <div class="pricing-desc">Ready-to-post social captions for your business, on demand.</div>
-          </div>
-          <div class="pricing-price">Custom Quote</div>
-        </div>
-        <div class="pricing-row">
-          <div class="pricing-row-left">
-            <div class="pricing-name">AI Concierge</div>
-            <div class="pricing-desc">Groq-powered chat widget for instant guest / customer questions.</div>
-          </div>
-          <div class="pricing-price">Custom Quote</div>
-        </div>
-      </div>
-
-      <div class="pricing-group reveal reveal-d3">
-        <div class="pricing-group-label">Monthly Care Plans</div>
-        <div class="pricing-row">
-          <div class="pricing-row-left">
-            <div class="pricing-name">Basic</div>
-            <div class="pricing-desc">Uptime checks, small text / image edits.</div>
-          </div>
-          <div class="pricing-price">R250 / mo</div>
-        </div>
-        <div class="pricing-row">
-          <div class="pricing-row-left">
-            <div class="pricing-name">Standard</div>
-            <div class="pricing-desc">Basic + monthly content update, priority WhatsApp support.</div>
-          </div>
-          <div class="pricing-price">R500 / mo</div>
-        </div>
-        <div class="pricing-row">
-          <div class="pricing-row-left">
-            <div class="pricing-name">Premium</div>
-            <div class="pricing-desc">Standard + AI tool upkeep, quarterly check-in call.</div>
-          </div>
-          <div class="pricing-price">R900 / mo</div>
-        </div>
-      </div>
-
-      <div class="pricing-group reveal reveal-d4">
-        <div class="pricing-group-label">Domain Registration &amp; Setup</div>
-        <div class="pricing-row">
-          <div class="pricing-row-left">
-            <div class="pricing-name">Domain Setup</div>
-            <div class="pricing-desc">Registration passed through at cost (~R200–250/yr), plus a flat handling fee for DNS setup and configuration.</div>
-          </div>
-          <div class="pricing-price">R150 once-off</div>
-        </div>
-        <div class="pricing-note">The domain itself is never marked up — you only pay for the time it takes to set it up correctly.</div>
-      </div>
-
-    </div>
+<section class="about" id="about">
+  <div class="wrap">
+    <h2>About</h2>
+    <p>I'm Bernelee Simon. Self-taught. Based in Lambert's Bay. I build websites and AI tools for small businesses that deserve to be taken seriously online.</p>
+    <p>I didn't come from an agency. I came from curiosity, discipline, and the decision to figure things out &mdash; no matter what. That's exactly what I bring to every build.</p>
+    <p>AI isn't a shortcut for me. It's a precision tool. It lets me deliver faster, charge less, and build things that actually work for the people who need them.</p>
+    <p>I don't build for the sake of building. I build with a purpose &mdash; to make your business look professional, work better, and give your customers a reason to take you seriously.</p>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
-<section id="portfolio">
-  <div class="container">
-    <span class="section-eyebrow reveal">Built by Percipio Digital</span>
-    <h2 class="section-title reveal reveal-d1">Portfolio</h2>
-    <div class="portfolio-items">
-
-      <div class="portfolio-item reveal reveal-d1">
-        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">🔥</span></div>
-        <div class="portfolio-content">
-          <div class="portfolio-tag">Self-Catering Accommodation · Lambert's Bay · <span class="portfolio-status">Demo</span></div>
-          <h3 class="portfolio-name">Braai Rus Self Catering</h3>
-          <p class="portfolio-desc">A mobile-first accommodation site for a West Coast self-catering getaway. Built to turn browsers into bookings — clear unit listings, WhatsApp enquiry, and the kind of coastal atmosphere that sells itself. Now being upgraded with a Groq-powered AI concierge for instant guest questions and availability.</p>
-          <div class="portfolio-features">
-            <span class="portfolio-feature">Accommodation Listings</span>
-            <span class="portfolio-feature">WhatsApp Booking</span>
-            <span class="portfolio-feature">Rates &amp; Availability</span>
-            <span class="portfolio-feature">Photo Gallery</span>
-            <span class="portfolio-feature">AI Concierge — In Progress</span>
-            <span class="portfolio-feature">Mobile-First</span>
-          </div>
-          <a href="https://braairusselfcatering.netlify.app" target="_blank" class="portfolio-link">View Demo →</a>
-        </div>
-      </div>
-
-      <div class="portfolio-item reveal reveal-d2">
-        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">🪶</span></div>
-        <div class="portfolio-content">
-          <div class="portfolio-tag">Community &amp; Culture · Lambert's Bay · <span class="portfolio-status">Live</span></div>
-          <h3 class="portfolio-name">Chief Ferdi Fransman</h3>
-          <p class="portfolio-desc">A site built for a community leader on the West Coast. Deep navy and gold branding, Khoisan geometric elements, and a dual certificate section that gives the page the weight the role deserves.</p>
-          <div class="portfolio-features">
-            <span class="portfolio-feature">Brand Story</span>
-            <span class="portfolio-feature">Certificate Section</span>
-            <span class="portfolio-feature">Scroll Animation</span>
-            <span class="portfolio-feature">Mobile-First</span>
-          </div>
-          <a href="https://ferdifransman.netlify.app" target="_blank" class="portfolio-link">View Live Site →</a>
-        </div>
-      </div>
-
-      <div class="portfolio-item reveal reveal-d3">
-        <div class="portfolio-thumb"><span class="portfolio-thumb-icon">💍</span></div>
-        <div class="portfolio-content">
-          <div class="portfolio-tag">Retail &amp; Trading · <span class="portfolio-status">Live</span></div>
-          <h3 class="portfolio-name">J&amp;S Trading</h3>
-          <p class="portfolio-desc">A clean, mobile-first storefront for J&amp;S Trading's jewelry boxes, perspex plaques, and clothing lines — organized categories, clear listings, and WhatsApp enquiry built in.</p>
-          <div class="portfolio-features">
-            <span class="portfolio-feature">Product Categories</span>
-            <span class="portfolio-feature">WhatsApp Enquiry</span>
-            <span class="portfolio-feature">Mobile-First</span>
-          </div>
-          <a href="https://jsbtrading.netlify.app" target="_blank" class="portfolio-link">View Live Site →</a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process">
-  <div class="container">
-    <span class="section-eyebrow reveal">Simple. Fast. Reliable.</span>
-    <h2 class="section-title reveal reveal-d1">How It Works</h2>
-    <div class="process-steps">
-      <div class="process-step reveal reveal-d2">
-        <div class="process-num">1</div>
-        <div>
-          <h3 class="process-step-title">Consult</h3>
-          <p class="process-step-desc">We start with a conversation — WhatsApp, phone, or in person. I listen to what your business needs. No jargon. No pressure.</p>
-        </div>
-      </div>
-      <div class="process-step reveal reveal-d3">
-        <div class="process-num">2</div>
-        <div>
-          <h3 class="process-step-title">Build</h3>
-          <p class="process-step-desc">I design and build your site using AI tools and proven web techniques. You see a draft early. Every element earns its place.</p>
-        </div>
-      </div>
-      <div class="process-step reveal reveal-d4">
-        <div class="process-num">3</div>
-        <div>
-          <h3 class="process-step-title">Launch</h3>
-          <p class="process-step-desc">Your site goes live — fast-loading and mobile-ready. I walk you through it. You leave knowing exactly what you have.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CREDENTIALS -->
-<section id="credentials">
-  <div class="credentials-inner">
+<section class="alt" id="location">
+  <div class="wrap loc">
     <div>
-      <div class="credentials-label reveal">Credentials &amp; Training</div>
-      <div class="credentials-items">
-        <div class="credential reveal reveal-d1">
-          <div class="credential-line"></div>
-          <div class="credential-text">Make.com Automation Platform<span>Workflow Design · Active</span></div>
-        </div>
-        <div class="credential reveal reveal-d2">
-          <div class="credential-line"></div>
-          <div class="credential-text">Self-Taught Web Development<span>HTML · CSS · JavaScript · GitHub Pages</span></div>
-        </div>
-        <div class="credential reveal reveal-d3">
-          <div class="credential-line"></div>
-          <div class="credential-text">Government Data Monitoring<span>Full-Time Role · South Africa</span></div>
-        </div>
-      </div>
+      <h2>Based on the West Coast</h2>
+      <p class="lead">Based in Lambert's Bay, Western Cape &mdash; building professional websites for businesses locally and beyond.</p>
+      <p class="small"><a class="link" href="https://www.google.com/maps/search/?api=1&query=Lambert%27s+Bay+Western+Cape" target="_blank" rel="noopener">Open in Google Maps</a></p>
+    </div>
+    <div class="map" id="map">
+      <svg viewBox="0 0 400 300" role="img" aria-label="Map showing Lambert's Bay on the West Coast of South Africa" preserveAspectRatio="xMidYMid slice">
+        <rect width="400" height="300" fill="#1c1c1c"/>
+        <path d="M0 0H150C160 60 130 90 150 140C165 190 140 240 155 300H0Z" fill="#131a1f"/>
+        <path d="M150 0C160 60 130 90 150 140C165 190 140 240 155 300" fill="none" stroke="#a9b4bb" stroke-opacity=".45" stroke-width="2"/>
+        <text x="30" y="150" fill="#a9b4bb" fill-opacity=".55" font-family="Oswald,sans-serif" font-size="13" letter-spacing="3">ATLANTIC OCEAN</text>
+        <circle cx="150" cy="140" r="16" fill="#c8863a" fill-opacity=".22"/>
+        <circle cx="150" cy="140" r="7" fill="#c8863a"/>
+        <text x="172" y="137" fill="#f0eef0" font-family="Oswald,sans-serif" font-size="17" font-weight="500">Lambert's Bay</text>
+        <text x="172" y="157" fill="#a9b4bb" font-family="Oswald,sans-serif" font-size="13">Western Cape</text>
+      </svg>
+      <button type="button" id="mapbtn">Tap to load interactive map</button>
     </div>
   </div>
 </section>
 
-<!-- AI DEMOS -->
-<section id="ai-demos">
-  <div class="ai-demos-inner">
-    <div class="ai-demos-left">
-      <span class="section-eyebrow reveal">Live &amp; Free to Try</span>
-      <h2 class="ai-demos-headline reveal reveal-d1">See what <em>AI can do</em> for your business.</h2>
-      <p class="ai-demos-desc reveal reveal-d2">These are real, working automations — not mockups. Fill in your business details and watch AI work in seconds. No sign up. No catch.</p>
-      <a href="demos.html" class="ai-demos-btn reveal reveal-d3">
-        Try the Live Demos
-        <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7H13M7 1L13 7L7 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-    <div class="ai-demos-right reveal reveal-d2">
-      <div class="ai-demo-card">
-        <div class="ai-demo-num">01</div>
-        <div>
-          <div class="ai-demo-name">Lead Qualifier Bot</div>
-          <div class="ai-demo-desc">Enter a lead's name, business type, and budget. The AI scores them, drafts your reply, and tells you exactly what to do next — in seconds.</div>
-        </div>
-      </div>
-      <div class="ai-demo-card">
-        <div class="ai-demo-num">02</div>
-        <div>
-          <div class="ai-demo-name">Social Media Content Generator</div>
-          <div class="ai-demo-desc">Type in your business name and niche. Get a ready-to-post Facebook caption instantly. No blank page. No guessing.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
 <section id="contact">
-  <div class="container">
-    <div class="contact-inner">
-      <div class="contact-left">
-        <h2 class="contact-headline reveal">Ready to build<br><em>something real?</em></h2>
-        <p class="contact-tagline reveal reveal-d1">No agency prices. No one who has to Google Lambert's Bay to find your street. Honest work, delivered fast, by someone who understands your community.</p>
-        <div class="contact-location reveal reveal-d2">Based in <strong>Lambert's Bay, West Coast.</strong><br>Building for everywhere.</div>
-      </div>
-      <div class="contact-right reveal reveal-d2">
-        <div class="contact-cta-block">
-          <div class="contact-cta-label">Fastest Way to Reach Me</div>
-          <div class="contact-cta-text">WhatsApp me and let's talk about your project.</div>
-          <a href="https://wa.me/27738399334" target="_blank" class="contact-btn-wa">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            <span>073 839 9334</span>
-          </a>
-          <a href="mailto:percipiodigital@gmail.com" class="contact-email-link">percipiodigital@gmail.com</a>
-        </div>
-      </div>
-    </div>
+  <div class="wrap">
+    <h2>Your business. Online. Done properly.</h2>
+    <p class="lead">Professional websites from R1,500 once-off.</p>
+    <a class="btn btn-wa" href="https://wa.me/27738399334?text=Hi%20Percipio%2C%20I%27d%20like%20a%20website%20for%20my%20business." target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>WhatsApp Percipio</a>
+    <p class="phone"><a href="tel:+27738399334">073 839 9334</a></p>
+    <a class="mail" href="mailto:percipiodigital@gmail.com">percipiodigital@gmail.com</a>
   </div>
 </section>
+</main>
 
 <footer>
-  <a href="#hero"><img src="percipio-digital-logo.svg" alt="Percipio Digital" style="height:32px; width:auto; display:block; opacity:0.85;"/></a>
-  <div class="footer-copy">© 2026 Percipio Digital · Lambert's Bay, South Africa</div>
+  <a href="#home"><img src="percipio-digital-logo.svg" alt="Percipio Digital"/></a>
+  <span>&copy; 2026 Percipio Digital &middot; Lambert's Bay, South Africa</span>
 </footer>
 
-<a href="https://wa.me/27738399334" target="_blank" class="wa-float" aria-label="WhatsApp">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+<div class="bar"><a class="btn btn-wa" href="https://wa.me/27738399334?text=Hi%20Percipio%2C%20I%27d%20like%20a%20website%20for%20my%20business." target="_blank" rel="noopener"><svg class="ico"><use href="#wa"/></svg>WhatsApp Us</a></div>
 
 <script>
-function toggleMenu() {
-  document.getElementById('mobileMenu').classList.toggle('open');
-}
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
-reveals.forEach(el => observer.observe(el));
-document.addEventListener('click', function(e) {
-  const menu = document.getElementById('mobileMenu');
-  const hamburger = document.querySelector('.hamburger');
-  if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
-    menu.classList.remove('open');
-  }
+var b=document.getElementById('burger'),m=document.getElementById('mmenu');
+function tog(o){m.classList.toggle('open',o);b.setAttribute('aria-expanded',m.classList.contains('open'))}
+b.addEventListener('click',function(){tog()});
+m.addEventListener('click',function(e){if(e.target.tagName==='A')tog(false)});
+document.getElementById('mapbtn').addEventListener('click',function(){
+  var f=document.createElement('iframe');
+  f.src='https://www.openstreetmap.org/export/embed.html?bbox=18.28%2C-32.11%2C18.34%2C-32.07&layer=mapnik&marker=-32.0915%2C18.3085';
+  f.title="Map of Lambert's Bay, Western Cape";f.loading='lazy';
+  var mp=document.getElementById('map');mp.innerHTML='';mp.appendChild(f);
 });
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav-links a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id'); });
-  navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--amber)' : ''; });
-}, { passive: true });
+var links=document.querySelectorAll('nav a'),secs=document.querySelectorAll('section[id]');
+addEventListener('scroll',function(){var c='';secs.forEach(function(s){if(scrollY>=s.offsetTop-120)c=s.id});
+  var map={home:'home',how:'how',services:'services',about:'about',location:'about',contact:'contact',problem:'home',get:'home',concept:'how'};
+  links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+map[c])})},{passive:true});
 </script>
 </body>
 </html>
