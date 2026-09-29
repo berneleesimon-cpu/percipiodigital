@@ -15,8 +15,8 @@ exports.handler = async function(event) {
     // Log everything for debugging
     console.log('Method:', event.httpMethod);
     console.log('Body received:', event.body);
-    console.log('Key exists:', !!process.env.GROQ_API_KEY);
-    console.log('Key prefix:', process.env.GROQ_API_KEY ? process.env.GROQ_API_KEY.substring(0, 8) : 'MISSING');
+  
+
 
     const raw = event.isBase64Encoded
       ? Buffer.from(event.body, 'base64').toString('utf8')
@@ -32,9 +32,10 @@ exports.handler = async function(event) {
     }
 
     const postData = JSON.stringify({
-      model: 'llama-3.1-8b-instant',
+      model: 'openai/gpt-oss-20b',
       messages: [{ role: 'user', content: prompt }],
-      max_tokens: 800
+      max_tokens: 2000,
+      reasoning_effort: 'low'
     });
 
     const result = await new Promise((resolve, reject) => {
